@@ -1,13 +1,18 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./routes/home";
 import Nav from "./routes/common/nav";
-import Login from "./routes/auth/login";
+import LoginForm from "./routes/auth/login";
+import RegisterForm from "./routes/auth/register";
 import { useState } from "react";
 import RemplrApi from "./helper/api";
 import "./styles/App.css";
+
 function App() {
   const [token, setToken] = useState(null);
 
+  /*
+  Handles user login
+  */
   const handleLogin = async (loginData) => {
     try {
       let token = await RemplrApi.login(loginData);
@@ -18,6 +23,21 @@ function App() {
       return { success: false, errors };
     }
   };
+
+  /** Handles register.
+   * Automatically logs them in (set token) upon signup.
+   *
+   */
+  const register = async (signupData) => {
+    try {
+      let token = await RemplrApi.signupUser(signupData);
+      setToken(token);
+      return { success: true };
+    } catch (errors) {
+      console.error("Register failed", errors);
+      return { success: false, errors };
+    }
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -25,7 +45,11 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login login={handleLogin} />} />
+            <Route path="/login" element={<LoginForm login={handleLogin} />} />
+            <Route
+              path="/get-started"
+              element={<RegisterForm register={register} />}
+            />
           </Routes>
         </Router>
       </header>
