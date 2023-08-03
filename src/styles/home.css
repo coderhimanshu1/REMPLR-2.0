@@ -1,0 +1,39 @@
+html,
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+.home-header {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  color: #f1f5f2;
+}
+
+.home img {
+  max-width: 10%;
+  padding: 0.5%;
+  margin: 0.5%;
+}
+
+.home-text {
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 10%;
+  right: 10%;
+  font-size: 220%;
+  margin: 0%;
+}
+
+.home h1 {
+  margin: 0%;
+}
+
+.home small {
+  font-weight: 600;
+}
