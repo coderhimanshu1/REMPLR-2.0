@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL =
-  process.env.REACT_APP_BASE_URL || "https://remplr-backend-url.com";
+  process.env.REACT_APP_BASE_URL || "https://remplr-backend.onrender.com";
 
 class RemplrApi {
   static token;
