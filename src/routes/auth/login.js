@@ -3,6 +3,7 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/common/auth.css";
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Alert from "../common/alert";
 
 const LoginForm = ({ login }) => {
   const navigate = useNavigate();
@@ -52,6 +53,9 @@ const LoginForm = ({ login }) => {
             required
           />
         </label>
+        {formErrors.length ? (
+          <Alert type="error" messages={formErrors} />
+        ) : null}
         <button type="submit" value="Log In">
           Login
         </button>
