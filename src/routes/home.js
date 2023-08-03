@@ -12,10 +12,9 @@ const Home = () => {
           <small>Meal Plans Made Simple.</small>
         </div>
       </div>
+
       <div className="home-about">
-        <div className="home-about-img">
-          {/* <img src={about} alt="About Image" /> */}
-        </div>
+        <div className="home-about-img"></div>
         <div className="home-about-text">
           <h1>ABOUT</h1>
           <p>
@@ -41,6 +40,30 @@ const Home = () => {
             save valuable time and focus on what truly matters – guiding their
             clients toward a healthier lifestyle.
           </p>
+        </div>
+      </div>
+
+      <div className="home-action">
+        <h1>HOW IT WORKS</h1>
+        <div className="home-action-steps">
+          <div className="home-action-step">
+            <small>1</small>
+            <h3>
+              Register to get access to our available database of recipes and
+              ingredients.
+            </h3>
+          </div>
+          <div className="home-action-step">
+            <small>2</small>
+            <h3>Add your clients and understand their likes and motivation.</h3>
+          </div>
+          <div className="home-action-step">
+            <small>3</small>
+            <h3>
+              Use our simplified meal plan creator and share the meal plan with
+              one click button.
+            </h3>
+          </div>
         </div>
       </div>
     </div>
