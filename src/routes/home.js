@@ -29,14 +29,14 @@ const Home = () => {
             dietitians, fitness coaches, and health enthusiasts to craft
             expertly tailored meal plans. We strive to make the process of meal
             planning easy, enjoyable, and accessible to all, helping our users
-            transform their client's health and well-being through the power of
+            transform your client's health and well-being through the power of
             nutrition.
           </p>
           <p>
             We understand that creating meal plans can be time-consuming and
             challenging. That's why we've developed a user-friendly interface
             that simplifies the process, allowing nutrition professionals to
-            save valuable time and focus on what truly matters – guiding their
+            save valuable time and focus on what truly matters – guiding your
             clients toward a healthier lifestyle.
           </p>
         </div>

@@ -1,5 +1,29 @@
-.nav-brand {
-  max-width: 10%;
-  padding: 0.5%;
-  margin: 0.5%;
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); */
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 200%;
+  color: #f1f5f2;
+  margin: 10px;
+}
+
+.nav-brand img {
+  max-width: 100px;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.nav-links {
+  padding-top: 30px;
+  padding-right: 30px;
 }
