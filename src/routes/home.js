@@ -66,6 +66,55 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div className="home-features">
+        <h1>FEATURES</h1>
+        <div className="home-features-cards">
+          <div className="home-features-card1">
+            <h3>Ingredients Management</h3>
+            <small>Get Ingredients information including its nutrition</small>
+          </div>
+          <div className="home-features-card2">
+            <h3>Recipes Management</h3>
+            <small>Get recipes information including its nutrition</small>
+          </div>
+          <div className="home-features-card3">
+            <h3>Meal Plans Management</h3>
+            <small>Create Meal Plans and share with your clients</small>
+          </div>
+        </div>
+      </div>
+
+      <div className="home-reviews">
+        <div className="home-review-title">
+          <h1>REVIEWS</h1>
+          <h2>Hear from other Nutritionists</h2>
+        </div>
+        <div className="home-review-container">
+          <div className="home-review">
+            <p>
+              I absolutely love Remplr! It's a game-changer for my nutrition
+              practice, allowing me to create personalized meal plans for my
+              clients effortlessly."
+            </p>
+            <small>@frances</small>
+          </div>
+          <div className="home-review">
+            <p>
+              Thanks to Remplr, The recipe library is a treasure trove of
+              deliciousness!
+            </p>
+            <small>@Ralph</small>
+          </div>
+          <div className="home-review">
+            <p>
+              Highly recommend Remplr for anyone serious about helping thier
+              clients with their health goals.
+            </p>
+            <small>@Kat</small>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

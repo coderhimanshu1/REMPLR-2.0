@@ -40,7 +40,7 @@ body {
   font-weight: 300;
 }
 
-.home small {
+.home-header small {
   font-weight: 300;
   word-spacing: 0.4em;
 }
@@ -123,3 +123,52 @@ body {
   font-weight: 300;
   font-size: 140%;
 }
+
+/* Styling for Features section */
+
+.home-features {
+  height: 80vh;
+  background-color: #16703c;
+  color: #f1f5f2;
+}
+
+.home-features h1 {
+  padding: 5%;
+}
+
+.home-features-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.home-features-card1 {
+  position: relative;
+  background-image: url("../images/feature1.webp");
+}
+
+.home-features-card2 {
+  background-image: url("../images/feature2.webp");
+}
+
+.home-features-card3 {
+  background-image: url("../images/featur3.webp");
+}
+
+.home-features-card1,
+.home-features-card2,
+.home-features-card3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2%;
+  margin: 2%;
+  height: 35vh;
+  border-radius: 26px;
+}
+
+/*  */
