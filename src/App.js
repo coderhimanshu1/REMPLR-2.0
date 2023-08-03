@@ -4,7 +4,7 @@ import Nav from "./routes/common/nav";
 import Login from "./routes/auth/login";
 import { useState } from "react";
 import RemplrApi from "./helper/api";
-
+import "./styles/App.css";
 function App() {
   const [token, setToken] = useState(null);
 

@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import "../../styles/common/auth.css";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({ login }) => {
   const navigate = useNavigate();
@@ -29,8 +30,8 @@ const Login = ({ login }) => {
 
   return (
     <div className="form-container">
-      <h1>LOGIN</h1>
       <form onSubmit={handleSubmit}>
+        <h1>LOGIN</h1>
         <label>
           <FontAwesomeIcon icon={faUser} />
           <input
