@@ -19,12 +19,6 @@ body {
   overflow: hidden;
 }
 
-.home-header img {
-  max-width: 10%;
-  padding: 0.5%;
-  margin: 0.5%;
-}
-
 .home-text {
   position: absolute;
   text-align: center;
@@ -129,6 +123,29 @@ body {
   font-size: 140%;
 }
 
+.home-action-button button {
+  width: 150px;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 20px 15px;
+  background-color: #f1f5f2;
+  border: 2px solid #011627;
+  font-size: 100%;
+  cursor: pointer;
+  border-bottom-width: 5px;
+}
+
+.home-action-button button:hover {
+  background-color: #011627;
+  color: #27c267;
+  border: 2px solid #16703c;
+  border-bottom-width: 5px;
+}
+
+.home-action-button button:active {
+  font-size: 80%;
+}
+
 /* Styling for Features section */
 
 .home-features {
@@ -207,7 +224,7 @@ body {
   height: 100%;
   background-color: #f1f5f2;
   padding: 5% 5%;
-  padding-bottom: 60%;
+  padding-bottom: 50%;
   margin-bottom: -50%;
 }
 

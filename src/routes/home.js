@@ -1,12 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/home.css";
-import logo from "../images/logo.svg";
 
 const Home = () => {
   return (
     <div className="home">
       <div className="home-header">
-        <img src={logo} alt="Remplr logo" />
         <div className="home-text">
           <h1>REMPLR</h1>
           <small>Meal Plans Made Simple.</small>
@@ -64,6 +63,11 @@ const Home = () => {
               one click button.
             </h3>
           </div>
+        </div>
+        <div className="home-action-button">
+          <Link to={`/register`}>
+            <button>SIGN UP NOW</button>
+          </Link>
         </div>
       </div>
 
