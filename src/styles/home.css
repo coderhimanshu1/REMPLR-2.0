@@ -135,6 +135,7 @@ body {
   height: 100%;
   background-color: #16703c;
   color: #f1f5f2;
+  padding: 4% 0;
 }
 
 .home-features h1 {
@@ -148,19 +149,23 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%;
 }
 
 .home-features-card1 {
   position: relative;
   background-image: url("../images/feature1.webp");
+  width: 20%;
 }
 
 .home-features-card2 {
   background-image: url("../images/feature2.webp");
+  width: 20%;
 }
 
 .home-features-card3 {
   background-image: url("../images/featur3.webp");
+  width: 20%;
 }
 
 .home-features-card1,
