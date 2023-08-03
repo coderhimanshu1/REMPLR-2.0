@@ -3,6 +3,8 @@ body {
   height: 100%;
   font-family: "Inter", sans-serif;
 }
+
+/* Styling for header */
 .home-header {
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -12,9 +14,12 @@ body {
   background-repeat: no-repeat;
   min-height: 80vh;
   color: #f1f5f2;
+  border-bottom-left-radius: 80% 20%;
+  border-bottom-right-radius: 80% 20%;
+  overflow: hidden;
 }
 
-.home img {
+.home-header img {
   max-width: 10%;
   padding: 0.5%;
   margin: 0.5%;
@@ -36,4 +41,33 @@ body {
 
 .home small {
   font-weight: 600;
+}
+
+/* Styling for about */
+
+.home-about {
+  display: flex;
+  background-color: #16703c;
+  padding-top: 50%;
+  min-height: 80vh;
+  margin-top: -50%;
+}
+
+.home-about-img {
+  width: 100%;
+  background-image: url("../images/about.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vh;
+  padding: 5%;
+  margin: 5%;
+  border-radius: 25px;
+}
+
+.home-about-text {
+  padding: 7%;
+  margin: 4% 0%;
+  text-align: left;
+  color: #f1f5f2;
 }
