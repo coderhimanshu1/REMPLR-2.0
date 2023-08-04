@@ -10,18 +10,22 @@
 .recipes-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: #f1f5f2;
+  border: 1px solid #16703c;
+  padding: 10px;
+  padding-top: 0;
+  margin: 3%;
   width: 250px;
-  height: 350px;
+  height: 220px;
   border: 3px solid #011627;
   border-radius: 10px;
 }
 
 .recipes-card img {
-  align-items: center;
   width: 70%;
-  height: 100%;
-  padding-left: 29px;
+  height: 80%;
+  padding-left: 35px;
   object-fit: contain;
   border-radius: 10px;
 }
@@ -30,11 +34,22 @@
   color: #16703c;
   width: 100%;
   text-align: center;
-  object-fit: contain;
   margin: 0;
 }
 
 .recipes-card a {
   color: #16703c;
   text-decoration: none;
+}
+
+.button,
+.call-to-action {
+  background-color: #ff6b6b;
+  color: #f1f5f2;
+}
+
+.recipes-caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

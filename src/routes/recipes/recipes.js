@@ -29,7 +29,7 @@ function Recipes() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <>
           <Alert
             type="success"
             messages={[
@@ -41,7 +41,7 @@ function Recipes() {
               <RecipeCard recipe={recipe} />
             </Link>
           ))}
-        </div>
+        </>
       )}
     </div>
   );

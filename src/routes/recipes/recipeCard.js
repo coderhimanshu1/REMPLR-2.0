@@ -7,12 +7,16 @@ const RecipeCard = ({ recipe }) => {
   return (
     <div className="recipes-card" key={recipe.id}>
       <img src={recipe.image} alt={recipe.title} />
-      <div className="recipes-dietary-icons">
-        {recipe.vegetarian && <span title="Vegetarian">🌱</span>}
-        {recipe.vegan && <span title="Vegan">🥕</span>}
-        {recipe.dairyFree && <span title="Dairy-Free">🥛❌</span>}
+      <div className="recipes-caption">
+        <span className="recipe-diet">
+          {recipe.vegetarian && <span title="Vegetarian">🌱</span>}
+          {recipe.vegan && <span title="Vegan">🥕</span>}
+          {recipe.dairyFree && <span title="Dairy-Free">🥛❌</span>}
+        </span>
         {/* Star icon to save Recipe */}
-        <SaveStarButton isSaved={isSaved} handleSave={handleRecipeSave} />
+        <span className="recipe-star">
+          <SaveStarButton isSaved={isSaved} handleSave={handleRecipeSave} />
+        </span>
       </div>
 
       <h3>{recipe.title}</h3>
