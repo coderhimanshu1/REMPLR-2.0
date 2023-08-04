@@ -4,6 +4,8 @@ import "../../styles/recipes/recipe.css";
 import RemplrApi from "../../helper/api";
 import { useSaveRecipe } from "../../hooks/useSaveRecipe";
 import SaveHeartButton from "../common/saveHeartButton";
+import "../common/nutrition";
+import Nutrition from "../common/nutrition";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -49,27 +51,7 @@ const Recipe = () => {
         <p>Diets: {recipe.diets}</p>
       </div>
       <div className="recipe-details">
-        <table>
-          <thead>
-            <tr>
-              <th>Nutrient</th>
-              <th>Amount</th>
-              <th>% of Daily Needs</th>
-            </tr>
-          </thead>
-          <tbody>
-            {recipe.nutrients &&
-              recipe.nutrients.map((nutrient, index) => (
-                <tr key={index}>
-                  <td>{nutrient.name}</td>
-                  <td>
-                    {nutrient.amount} {nutrient.unit}
-                  </td>
-                  <td>{nutrient.percentofdailyneeds}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <Nutrition mapper={recipe.nutrients} item={recipe.nutrients.nutrient} />
         <div className="recipe-prep">
           <h2>Ingredients</h2>
           <ul>

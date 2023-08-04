@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import RemplrApi from "../../helper/api";
 import "../../styles/ingredients/ingredient.css";
 import ingredientImg from "../../images/ingredient.webp";
-import { FaRegStar } from "react-icons/fa";
 import { useSaveIngredient } from "../../hooks/useSaveIngredient";
 import SaveHeartButton from "../common/saveHeartButton";
+import Nutrition from "../common/nutrition";
 
 const Ingredient = () => {
   const { id } = useParams();
@@ -50,26 +50,10 @@ const Ingredient = () => {
       {ingredient &&
         ingredient.nutrients &&
         ingredient.nutrients.length > 0 && (
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>% of Daily Needs</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ingredient.nutrients.map((nutrient, index) => (
-                <tr key={index}>
-                  <td>{nutrient.name}</td>
-                  <td>
-                    {nutrient.amount} {nutrient.unit}
-                  </td>
-                  <td>{nutrient.percentOfDailyNeeds}%</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <Nutrition
+            mapper={ingredient.nutrients}
+            item={ingredient.nutrients}
+          />
         )}
     </div>
   );
