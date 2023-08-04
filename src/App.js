@@ -3,6 +3,7 @@ import Home from "./routes/home";
 import Nav from "./routes/common/nav";
 import LoginForm from "./routes/auth/login";
 import RegisterForm from "./routes/auth/register";
+import Ingredients from "./routes/ingredients/ingredients";
 import { useState } from "react";
 import RemplrApi from "./helper/api";
 import "./styles/App.css";
@@ -50,6 +51,7 @@ function App() {
               path="/get-started"
               element={<RegisterForm register={register} />}
             />
+            <Route path="/ingredients" element={<Ingredients />} />
           </Routes>
         </Router>
       </header>

@@ -116,6 +116,90 @@ class RemplrApi {
     return result["deleted user"];
   }
 
+  /** Associate an ingredient with a user
+   * Takes a username and ingredient ID
+   * Returns a confirmation message
+   * Authorization required: admin or same user-as-:username
+   */
+  static async saveIngredient(username, ingredientId) {
+    const result = await this.request(
+      `users/${username}/ingredients/${ingredientId}`,
+      {},
+      "post"
+    );
+    return result["Saved ingredient with id"];
+  }
+
+  /** Associate a recipe with a user
+   * Takes a username and recipe ID
+   * Returns a confirmation message
+   * Authorization required: admin or same user-as-:username
+   */
+  static async saveRecipe(username, recipeId) {
+    const result = await this.request(
+      `users/${username}/recipes/${recipeId}`,
+      {},
+      "post"
+    );
+    return result["Saved ingredient with id"];
+  }
+
+  /** Associate a meal plan with a user
+   * Takes a username and mealPlan ID
+   * Returns the mealPlan object
+   * Authorization required: admin or nutritionist
+   */
+  static async saveMealPlan(username, mealPlanId) {
+    const result = await this.request(
+      `users/${username}/mealplans/${mealPlanId}`,
+      {},
+      "post"
+    );
+    return result;
+  }
+
+  /*****************************
+   * Methods for User's Ingredients
+   ******************************/
+
+  /** Get user's saved ingredients by username
+   * Takes a username
+   * Returns { ingredients: [{id, aisle, image, name, original, amount, unit}, ...] }
+   * Authorization required: admin or same-user-as-:username
+   */
+  static async getUserSavedIngredients(username) {
+    const result = await this.request(`${username}/ingredients`);
+    return result.ingredients;
+  }
+
+  /*****************************
+   * Methods for User's Recipes
+   ******************************/
+
+  /** Get user's saved recipes by username
+   * Takes a username
+   * Returns { recipes: [{id, vegetarian, vegan, dairyfree, weightwatchersmartpoints, creditstext, title, readyinminutes, servings, sourceurl, image, imagetype, dishtype, diets, summary}, ...] }
+   * Authorization required: admin or same-user-as-:username
+   */
+  static async getUserSavedRecipes(username) {
+    const result = await this.request(`${username}/recipes`);
+    return result.recipes;
+  }
+
+  /*****************************
+   * Methods for User's Meal Plans
+   ******************************/
+
+  /** Get user's saved meal plans by username
+   * Takes a username
+   * Returns { mealplans: [{id, name, created_by}, ...] }
+   * Authorization required: admin or same-user-as-:username
+   */
+  static async getUserSavedMealPlans(username) {
+    const result = await this.request(`${username}/mealplans`);
+    return result.mealplans;
+  }
+
   /*****************************
    * Methods for Ingredients
    ******************************/
