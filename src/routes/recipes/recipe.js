@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RemplrApi from "../../helper/api";
+import { useSaveRecipe } from "../../hooks/useSaveRecipe";
+import SaveStarButton from "../common/saveStarButton";
 
 const Recipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const { isSaved, handleRecipeSave } = useSaveRecipe(id);
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -27,6 +30,8 @@ const Recipe = () => {
       <h1>{recipe.title}</h1>
       <img src={recipe.image} alt={recipe.title} />
       <small>
+        {/* Star icon to save Recipe */}
+        <SaveStarButton isSaved={isSaved} handleSave={handleRecipeSave} />
         Source:
         <a href={recipe.sourceurl} target="_blank" rel="noreferrer">
           {recipe.creditstext}
@@ -59,12 +64,12 @@ const Recipe = () => {
             ))}
         </tbody>
       </table>
-      <h2>Ingredients</h2>
+      <h2>Recipes</h2>
       <ul>
-        {recipe.ingredients &&
-          recipe.ingredients.map((ingredient) => (
-            <li key={ingredient.id}>
-              {ingredient.amount} {ingredient.unit} {ingredient.name}
+        {recipe.Recipes &&
+          recipe.Recipes.map((Recipe) => (
+            <li key={Recipe.id}>
+              {Recipe.amount} {Recipe.unit} {Recipe.name}
             </li>
           ))}
       </ul>
