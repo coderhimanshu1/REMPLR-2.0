@@ -5,7 +5,7 @@ import "../../styles/ingredients/ingredients.css";
 import ingredientImg from "../../images/ingredient.webp";
 import Alert from "../common/alert";
 
-function Ingredients() {
+const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -69,6 +69,6 @@ function Ingredients() {
       )}
     </div>
   );
-}
+};
 
 export default Ingredients;

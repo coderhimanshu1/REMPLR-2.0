@@ -5,7 +5,7 @@ import "../../styles/ingredients/ingredient.css";
 import ingredientImg from "../../images/ingredient.webp";
 import { FaRegStar } from "react-icons/fa";
 
-function Ingredient() {
+const Ingredient = () => {
   const { id } = useParams();
   const [ingredient, setIngredient] = useState(null);
   const [isSaved, setIsSaved] = useState(false); // State for saved status
@@ -80,6 +80,6 @@ function Ingredient() {
         )}
     </div>
   );
-}
+};
 
 export default Ingredient;
