@@ -4,8 +4,10 @@ import Nav from "./routes/common/nav";
 import LoginForm from "./routes/auth/login";
 import RegisterForm from "./routes/auth/register";
 import Ingredients from "./routes/ingredients/ingredients";
-import Recipes from "./routes/recipes/recipes";
 import Ingredient from "./routes/ingredients/ingredient";
+import Recipes from "./routes/recipes/recipes";
+import Recipe from "./routes/recipes/recipe";
+
 import { useState } from "react";
 import RemplrApi from "./helper/api";
 import "./styles/App.css";
@@ -56,6 +58,7 @@ function App() {
             <Route path="/ingredients" element={<Ingredients />} />
             <Route path="/ingredients/:id" element={<Ingredient />} />
             <Route path="/recipes" element={<Recipes />} />
+            <Route path="/recipes/:id" element={<Recipe />} />
           </Routes>
         </Router>
       </header>
