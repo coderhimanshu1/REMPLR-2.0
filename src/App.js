@@ -4,6 +4,7 @@ import Nav from "./routes/common/nav";
 import LoginForm from "./routes/auth/login";
 import RegisterForm from "./routes/auth/register";
 import Ingredients from "./routes/ingredients/ingredients";
+import Ingredient from "./routes/ingredients/ingredient";
 import { useState } from "react";
 import RemplrApi from "./helper/api";
 import "./styles/App.css";
@@ -52,6 +53,7 @@ function App() {
               element={<RegisterForm register={register} />}
             />
             <Route path="/ingredients" element={<Ingredients />} />
+            <Route path="/ingredients/:id" element={<Ingredient />} />
           </Routes>
         </Router>
       </header>

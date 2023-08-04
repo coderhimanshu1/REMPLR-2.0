@@ -45,7 +45,9 @@ function Ingredients() {
         <>
           <Alert
             type="success"
-            messages={["Click on ingredient card to view nutrient details."]}
+            messages={[
+              "Click on ingredient card to view ingredient's nutritional information.",
+            ]}
           />
           {ingredients.map((ingredient) => (
             <div className="ingredients-card" key={ingredient.id}>
@@ -53,7 +55,7 @@ function Ingredients() {
                 <img
                   src={
                     ingredient.image
-                      ? "https://spoonacular.com/cdn/ingredients_100x100/" +
+                      ? "https://spoonacular.com/cdn/ingredients_250x250/" +
                         ingredient.image
                       : ingredientImg
                   }
