@@ -1,0 +1,28 @@
+svg {
+  font-size: 150%;
+  padding: 3%;
+  margin: 1%;
+  color: #bb0a21;
+  cursor: pointer;
+}
+
+table {
+  background-color: #f1f5f2;
+  margin: 2%;
+  padding: 2%;
+  width: 440px;
+  border-radius: 10px;
+  border: 2px black solid;
+}
+
+th {
+  font-weight: 500;
+}
+thead {
+  background-color: #6f8f72;
+  color: #f1f5f2;
+}
+
+td {
+  background-color: #d1dcd2;
+}

@@ -5,7 +5,7 @@ import "../../styles/ingredients/ingredient.css";
 import ingredientImg from "../../images/ingredient.webp";
 import { FaRegStar } from "react-icons/fa";
 import { useSaveIngredient } from "../../hooks/useSaveIngredient";
-import SaveStarButton from "../common/saveStarButton";
+import SaveHeartButton from "../common/saveHeartButton";
 
 const Ingredient = () => {
   const { id } = useParams();
@@ -36,7 +36,10 @@ const Ingredient = () => {
 
           <h1>{ingredient.name}</h1>
           {/* Star icon to save ingredient */}
-          <SaveStarButton isSaved={isSaved} handleSave={handleIngredientSave} />
+          <SaveHeartButton
+            isSaved={isSaved}
+            handleSave={handleIngredientSave}
+          />
 
           <p>
             Amount: {ingredient.amount} {ingredient.unit}
@@ -47,29 +50,26 @@ const Ingredient = () => {
       {ingredient &&
         ingredient.nutrients &&
         ingredient.nutrients.length > 0 && (
-          <div className="nutrient-card">
-            <h3>Nutritional Information</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Amount</th>
-                  <th>Unit</th>
-                  <th>% of Daily Needs</th>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>% of Daily Needs</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ingredient.nutrients.map((nutrient, index) => (
+                <tr key={index}>
+                  <td>{nutrient.name}</td>
+                  <td>
+                    {nutrient.amount} {nutrient.unit}
+                  </td>
+                  <td>{nutrient.percentOfDailyNeeds}%</td>
                 </tr>
-              </thead>
-              <tbody>
-                {ingredient.nutrients.map((nutrient, index) => (
-                  <tr key={index}>
-                    <td>{nutrient.name}</td>
-                    <td>{nutrient.amount}</td>
-                    <td>{nutrient.unit}</td>
-                    <td>{nutrient.percentOfDailyNeeds}%</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         )}
     </div>
   );

@@ -1,6 +1,6 @@
 import "../../styles/recipes/recipes.css";
 import { useSaveRecipe } from "../../hooks/useSaveRecipe";
-import SaveStarButton from "../common/saveStarButton";
+import SaveHeartButton from "../common/saveHeartButton";
 
 const RecipeCard = ({ recipe }) => {
   const { isSaved, handleRecipeSave } = useSaveRecipe(recipe.id);
@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe }) => {
         </span>
         {/* Star icon to save Recipe */}
         <span className="recipe-star">
-          <SaveStarButton isSaved={isSaved} handleSave={handleRecipeSave} />
+          <SaveHeartButton isSaved={isSaved} handleSave={handleRecipeSave} />
         </span>
       </div>
 
