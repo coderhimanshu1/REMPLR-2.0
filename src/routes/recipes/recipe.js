@@ -26,14 +26,16 @@ const Recipe = () => {
     <div className="recipe">
       <h1>{recipe.title}</h1>
       <img src={recipe.image} alt={recipe.title} />
+      <small>
+        Source:
+        <a href={recipe.sourceurl} target="_blank" rel="noreferrer">
+          {recipe.creditstext}
+        </a>
+      </small>
       <p>
-        {recipe.vegan
-          ? "Vegan"
-          : recipe.vegetarian
-          ? "Vegetarian"
-          : recipe.dairyFree
-          ? "Dairy Free"
-          : ""}
+        {recipe.vegetarian && <span title="Vegetarian">🌱 Vegetarian</span>}
+        {recipe.vegan && <span title="Vegan">🥕 Vegan</span>}
+        {recipe.dairyFree && <span title="Dairy-Free">🥛❌ Diary free</span>}
       </p>
       <p>Time to cook: {recipe.readyinminutes} minutes</p>
       <p>Servings: {recipe.servings}</p>

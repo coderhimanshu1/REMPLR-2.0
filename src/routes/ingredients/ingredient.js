@@ -22,7 +22,7 @@ const Ingredient = () => {
   const handleSave = async () => {
     // TODO: update logged in user
     const username = "exampleUser";
-    await RemplrApi.saveIngredient(username, id);
+    await RemplrApi.saveIngredient(username, ingredient.id);
     setIsSaved(true); // Update the saved status
   };
 
@@ -39,6 +39,7 @@ const Ingredient = () => {
             }
             alt={ingredient.name}
           />
+
           <h1>{ingredient.name}</h1>
           {/* Star icon to save ingredient */}
           <FaRegStar

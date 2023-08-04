@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RemplrApi from "../../helper/api";
 import "../../styles/ingredients/ingredients.css";
-import ingredientImg from "../../images/ingredient.webp";
 import Alert from "../common/alert";
+import IngredientCard from "./ingredientCard";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -50,20 +50,9 @@ const Ingredients = () => {
             ]}
           />
           {ingredients.map((ingredient) => (
-            <div className="ingredients-card" key={ingredient.id}>
-              <Link to={`/ingredients/${ingredient.id}`}>
-                <img
-                  src={
-                    ingredient.image
-                      ? "https://spoonacular.com/cdn/ingredients_250x250/" +
-                        ingredient.image
-                      : ingredientImg
-                  }
-                  alt={ingredient.name}
-                />
-                <h3>{ingredient.name}</h3>
-              </Link>
-            </div>
+            <Link to={`/ingredients/${ingredient.id}`}>
+              <IngredientCard ingredient={ingredient} />
+            </Link>
           ))}
         </>
       )}
