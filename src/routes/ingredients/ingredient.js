@@ -3,10 +3,12 @@ import { useParams } from "react-router-dom";
 import RemplrApi from "../../helper/api";
 import "../../styles/ingredients/ingredient.css";
 import ingredientImg from "../../images/ingredient.webp";
+import { FaRegStar } from "react-icons/fa";
 
 function Ingredient() {
   const { id } = useParams();
   const [ingredient, setIngredient] = useState(null);
+  const [isSaved, setIsSaved] = useState(false); // State for saved status
 
   useEffect(() => {
     async function fetchIngredient() {
@@ -15,6 +17,14 @@ function Ingredient() {
     }
     fetchIngredient();
   }, [id]);
+
+  // Function to handle saving the ingredient
+  const handleSave = async () => {
+    // TODO: update logged in user
+    const username = "exampleUser";
+    await RemplrApi.saveIngredient(username, id);
+    setIsSaved(true); // Update the saved status
+  };
 
   return (
     <div className="ingredient">
@@ -30,6 +40,11 @@ function Ingredient() {
             alt={ingredient.name}
           />
           <h1>{ingredient.name}</h1>
+          {/* Star icon to save ingredient */}
+          <FaRegStar
+            className={isSaved ? "saved-star" : "save-star"}
+            onClick={handleSave}
+          />
           <p>
             Amount: {ingredient.amount} {ingredient.unit}
           </p>

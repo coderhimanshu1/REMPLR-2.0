@@ -10,10 +10,11 @@
 }
 
 .ingredient-detail {
-  width: 20%;
+  width: 30%;
   padding: 2%;
   border-radius: 10px;
   background-color: #f1f5f2;
+  margin-bottom: 20px;
 }
 
 .ingredient-detail img {
