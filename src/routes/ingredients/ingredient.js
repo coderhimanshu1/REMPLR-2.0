@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RemplrApi from "../../helper/api";
+import "../../styles/ingredients/ingredient.css";
 import ingredientImg from "../../images/ingredient.webp";
 
 function Ingredient() {
@@ -39,7 +40,7 @@ function Ingredient() {
         ingredient.nutrients &&
         ingredient.nutrients.length > 0 && (
           <div className="nutrient-card">
-            <h3>Nutriental Information</h3>
+            <h3>Nutritional Information</h3>
             <table>
               <thead>
                 <tr>

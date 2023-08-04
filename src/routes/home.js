@@ -65,7 +65,7 @@ const Home = () => {
           </div>
         </div>
         <div className="home-action-button">
-          <Link to={`/register`}>
+          <Link to={`/get-started`}>
             <button>SIGN UP NOW</button>
           </Link>
         </div>

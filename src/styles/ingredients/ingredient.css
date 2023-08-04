@@ -1,0 +1,44 @@
+.ingredient {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #16703c;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.ingredient-detail {
+  width: 20%;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: #f1f5f2;
+}
+
+.ingredient-detail img {
+  width: 80%;
+  padding: 15%;
+}
+
+.nutrient-card {
+  background-color: #f1f5f2;
+  padding: 2%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.nutrient-card h3 {
+  font-size: 200%;
+}
+
+.nutrient-card table {
+  padding: 1% 0;
+}
+.nutrient-card thead {
+  background-color: #6f8f72;
+}
+
+.nutrient-card td {
+  background-color: #d1dcd2;
+}
