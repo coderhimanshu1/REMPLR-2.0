@@ -16,7 +16,7 @@ import RemplrApi from "./helper/api";
 import "./styles/App.css";
 
 function App() {
-  const [token, setToken] = useLocalStorage(null);
+  const [token, setToken] = useLocalStorage("");
   const [currentUser, setCurrentUser] = useState(null);
 
   // Get user information once we have token from API

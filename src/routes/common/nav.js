@@ -59,7 +59,7 @@ const Nav = () => {
             MEALPLANS
           </Link>
           <Link exact to="/profile">
-            {currentUser.username}
+            My Profile
           </Link>
           <button className="nav-logout" onClick={logout}>
             Log Out

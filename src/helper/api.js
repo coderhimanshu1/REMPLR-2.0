@@ -8,7 +8,6 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class RemplrApi {
   static token;
-
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
@@ -16,6 +15,7 @@ class RemplrApi {
     //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${RemplrApi.token}` };
+    console.log("headers", headers);
     const params = method === "get" ? data : {};
 
     try {
@@ -42,6 +42,8 @@ class RemplrApi {
       { username, password },
       "post"
     );
+    console.log("result", result);
+    this.token = result.token;
     return result.token;
   }
 
@@ -63,6 +65,7 @@ class RemplrApi {
    */
   static async registerNutritionist(data) {
     const result = await this.request(`auth/register`, data, "post");
+    this.token = result.token;
     return result.token;
   }
 
