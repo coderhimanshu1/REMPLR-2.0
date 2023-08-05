@@ -56,7 +56,7 @@ function App() {
   */
   const handleLogin = async (loginData) => {
     try {
-      let token = await RemplrApi.login(loginData);
+      let token = await RemplrApi.login(loginData.username, loginData.password);
       setToken(token);
       return { success: true };
     } catch (errors) {
