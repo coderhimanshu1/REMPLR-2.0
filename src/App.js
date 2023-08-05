@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import jwt from "jsonwebtoken";
+import useLocalStorage from "./hooks/useLocalStorage";
 import "./styles/common/common.css";
 import Home from "./routes/home";
 import Nav from "./routes/common/nav";
@@ -8,13 +11,44 @@ import Ingredients from "./routes/ingredients/ingredients";
 import Ingredient from "./routes/ingredients/ingredient";
 import Recipes from "./routes/recipes/recipes";
 import Recipe from "./routes/recipes/recipe";
-
-import { useState } from "react";
 import RemplrApi from "./helper/api";
 import "./styles/App.css";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useLocalStorage(null);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  // Get user information once we have token from API
+  useEffect(() => {
+    const getUser = async () => {
+      if (token) {
+        try {
+          let { username } = jwt.decode(token);
+
+          let currentUser = await RemplrApi.getUser(username);
+
+          // set the user data to local storage
+          window.localStorage.setItem(
+            "currentUser",
+            JSON.stringify(currentUser)
+          );
+          setCurrentUser(currentUser);
+        } catch (err) {
+          setCurrentUser(null);
+        }
+      }
+      setToken(RemplrApi.token);
+    };
+    getUser();
+  }, [token]);
+
+  useEffect(() => {
+    // get user data from local storage
+    const storedUser = window.localStorage.getItem("currentUser");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   /*
   Handles user login
