@@ -40,7 +40,7 @@ const RegisterForm = ({ register }) => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <h1>SIGN UP</h1>
+        <h1>GET STARTED!</h1>
         <label>
           <FontAwesomeIcon icon={faUser} />
           <input
@@ -105,7 +105,7 @@ const RegisterForm = ({ register }) => {
           value="Register"
           onClick={register}
         >
-          Register
+          Sign Up
         </button>
         <p>
           Already Have an Account? <Link to="/login">Login</Link>
