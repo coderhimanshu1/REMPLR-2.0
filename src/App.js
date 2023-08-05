@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import jwt from "jsonwebtoken";
+import { decodeToken } from "react-jwt";
 import useLocalStorage from "./hooks/useLocalStorage";
 import "./styles/common/common.css";
 import Home from "./routes/home";
@@ -23,7 +23,7 @@ function App() {
     const getUser = async () => {
       if (token) {
         try {
-          let { username } = jwt.decode(token);
+          let { username } = decodeToken(token);
 
           let currentUser = await RemplrApi.getUser(username);
 
