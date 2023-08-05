@@ -146,6 +146,31 @@ body {
   font-size: 80%;
 }
 
+/* Styling for action plan for logged in user */
+
+.home-login-action {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/calltoaction.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f1f5f2;
+  text-align: center;
+}
+
+.home-login-action-step h3 {
+  padding: 200px;
+}
+
+.home-login-action-step small {
+  background-color: #16703c;
+  border-radius: 10px;
+  padding: 0 10%;
+  font-size: 200%;
+}
+
 /* Styling for Features section */
 
 .home-features {

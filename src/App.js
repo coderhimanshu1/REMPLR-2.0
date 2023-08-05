@@ -14,6 +14,7 @@ import Recipes from "./routes/recipes/recipes";
 import Recipe from "./routes/recipes/recipe";
 import RemplrApi from "./helper/api";
 import "./styles/App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [token, setToken] = useLocalStorage("");
