@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { decodeToken } from "react-jwt";
 import useLocalStorage from "./hooks/useLocalStorage";
 import "./styles/common/common.css";
+import UserContext from "./routes/common/userContext";
 import Home from "./routes/home";
 import Nav from "./routes/common/nav";
 import LoginForm from "./routes/auth/login";
@@ -83,19 +84,30 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Router>
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginForm login={handleLogin} />} />
-            <Route
-              path="/get-started"
-              element={<RegisterForm register={register} />}
-            />
-            <Route path="/ingredients" element={<Ingredients />} />
-            <Route path="/ingredients/:id" element={<Ingredient />} />
-            <Route path="/recipes" element={<Recipes />} />
-            <Route path="/recipes/:id" element={<Recipe />} />
-          </Routes>
+          <UserContext.Provider
+            value={{
+              currentUser,
+              setCurrentUser,
+              setToken,
+            }}
+          >
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/login"
+                element={<LoginForm login={handleLogin} />}
+              />
+              <Route
+                path="/get-started"
+                element={<RegisterForm register={register} />}
+              />
+              <Route path="/ingredients" element={<Ingredients />} />
+              <Route path="/ingredients/:id" element={<Ingredient />} />
+              <Route path="/recipes" element={<Recipes />} />
+              <Route path="/recipes/:id" element={<Recipe />} />
+            </Routes>
+          </UserContext.Provider>
         </Router>
       </header>
     </div>
