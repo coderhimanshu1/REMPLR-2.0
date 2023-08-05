@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../../styles/recipes/recipe.css";
 import RemplrApi from "../../helper/api";
 import { useSaveRecipe } from "../../hooks/useSaveRecipe";
 import SaveHeartButton from "../common/saveHeartButton";
 import "../common/nutrition";
 import Nutrition from "../common/nutrition";
+import UserContext from "../common/userContext";
 
 const Recipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const { isSaved, handleRecipeSave } = useSaveRecipe(id);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
+  if (!currentUser) {
+    navigate("/login");
+  }
   useEffect(() => {
     const fetchRecipe = async () => {
       try {

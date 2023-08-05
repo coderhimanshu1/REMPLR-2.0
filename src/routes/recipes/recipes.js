@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import RemplrApi from "../../helper/api";
 import "../../styles/recipes/recipes.css";
 import RecipeCard from "./recipeCard";
 import Alert from "../common/alert";
+import UserContext from "../common/userContext";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  if (!currentUser) {
+    navigate("/login");
+  }
 
   useEffect(() => {
     const fetchRecipes = async () => {

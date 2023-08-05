@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import RemplrApi from "../../helper/api";
 import "../../styles/ingredients/ingredients.css";
 import Alert from "../common/alert";
 import IngredientCard from "./ingredientCard";
+import UserContext from "../common/userContext";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  if (!currentUser) {
+    navigate("/login");
+  }
 
   useEffect(() => {
     const fetchIngredients = async () => {
