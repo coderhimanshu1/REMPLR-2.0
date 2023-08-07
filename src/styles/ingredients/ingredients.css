@@ -17,14 +17,13 @@
   padding: 10px;
   padding-top: 0;
   margin: 6%;
-  width: 150px;
+  width: 180px;
   height: 300px;
   border: 2px solid #011627;
 }
 
 .ingredients-card img {
   width: 70%;
-  height: 80%;
   padding-left: 15px;
   object-fit: contain;
   border-radius: 10px;
@@ -32,12 +31,13 @@
 
 .ingredients-card h3 {
   color: #16703c;
-  width: 100%;
+  width: 90%;
   text-align: center;
   margin: 0;
+  font-size: 120%;
 }
 
-.ingredients-card a {
+.ingredients a {
   color: #16703c;
   text-decoration: none;
 }

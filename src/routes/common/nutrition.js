@@ -1,4 +1,4 @@
-const Nutrition = ({ mapper, item }) => {
+const Nutrition = ({ mapper }) => {
   return (
     <table>
       <thead>
