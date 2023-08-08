@@ -4,6 +4,11 @@
   background-color: #16703c;
 }
 
+.form-container img {
+  width: 80px;
+  margin: 10px 30px;
+}
+
 .form-container form {
   display: flex;
   position: absolute;

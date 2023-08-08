@@ -4,6 +4,7 @@ import "../../styles/common/auth.css";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "../common/alert";
+import Brand from "../common/brand";
 
 const LoginForm = ({ login }) => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const LoginForm = ({ login }) => {
 
   return (
     <div className="form-container">
+      <Brand />
       <form onSubmit={handleSubmit}>
         <h1>LOGIN</h1>
         <label>
