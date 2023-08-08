@@ -5,6 +5,7 @@ body {
 }
 
 /* Styling for header */
+
 .home-header {
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -17,6 +18,11 @@ body {
   border-bottom-left-radius: 80% 20%;
   border-bottom-right-radius: 80% 20%;
   overflow: hidden;
+}
+
+.home-header img {
+  width: 80px;
+  margin: 10px 30px;
 }
 
 .home-text {
@@ -121,6 +127,7 @@ body {
 .home-action-step h3 {
   font-weight: 300;
   font-size: 140%;
+  margin: 8% 0;
 }
 
 .home-action-button button {
@@ -295,6 +302,7 @@ h2 {
   flex-direction: column;
   padding: 8%;
   height: 100%;
+  padding-bottom: 2%;
   border-top-left-radius: 80% 20%;
   border-top-right-radius: 80% 20%;
   overflow: hidden;
@@ -332,6 +340,15 @@ h2 {
 
 .home-contact-social-container small {
   padding: 0.5% 0;
+}
+
+.home-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.home-footer small {
+  margin: 0 12px;
 }
 
 @media (max-width: 660px) {

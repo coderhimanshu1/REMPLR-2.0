@@ -17,7 +17,7 @@ import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [token, setToken] = useLocalStorage("");
+  const [token, setToken] = useLocalStorage("token");
   const [currentUser, setCurrentUser] = useState(null);
 
   // Get user information once we have token from API
@@ -39,7 +39,7 @@ function App() {
           setCurrentUser(null);
         }
       }
-      setToken(RemplrApi.token);
+      setToken(token);
     };
     getUser();
   }, [token]);

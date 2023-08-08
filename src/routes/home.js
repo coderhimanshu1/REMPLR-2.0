@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 import UserContext from "./common/userContext";
 import { Carousel } from "react-bootstrap";
+import Brand from "./common/brand";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -10,6 +11,9 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-header">
+        <div className="home-header-top">
+          <Brand />
+        </div>
         <div className="home-text">
           <h1>REMPLR</h1>
           <small>Meal Plans Made Simple.</small>
@@ -116,11 +120,11 @@ const Home = () => {
                 with one click button.
               </h3>
             </div>
-            <div className="home-action-button">
-              <Link to={`/get-started`}>
-                <button>SIGN UP NOW</button>
-              </Link>
-            </div>
+          </div>
+          <div className="home-action-button">
+            <Link to={`/get-started`}>
+              <button>SIGN UP NOW</button>
+            </Link>
           </div>
         </div>
       )}
@@ -189,6 +193,10 @@ const Home = () => {
             </div>
           </div>
           <p>HELLO@REMPLR.COM</p>
+        </div>
+        <div className="home-footer">
+          <small>Developed with 💚 by Himanshu.</small>{" "}
+          <small>© Remplr, 2023</small>
         </div>
       </div>
     </div>
