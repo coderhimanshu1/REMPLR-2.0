@@ -18,13 +18,18 @@ const Ingredients = () => {
 
   useEffect(() => {
     const fetchIngredients = async () => {
-      const response = await RemplrApi.getIngredients();
-      // Filtering only valid ingredients based on their name
-      const validIngredients = response.ingredients.filter((ingredient) =>
-        isValidName(ingredient.name)
-      );
-      setIngredients(validIngredients);
-      setIsLoading(false);
+      try {
+        const response = await RemplrApi.getIngredients();
+        // Filtering only valid ingredients based on their name
+        const validIngredients = response.ingredients.filter((ingredient) =>
+          isValidName(ingredient.name)
+        );
+        setIngredients(validIngredients);
+      } catch (error) {
+        console.error("Failed to fetch recipes", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchIngredients();
   }, []);

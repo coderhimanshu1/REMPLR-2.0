@@ -8,7 +8,7 @@ import UserContext from "../common/userContext";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -20,11 +20,12 @@ function Recipes() {
     const fetchRecipes = async () => {
       try {
         const response = await RemplrApi.getRecipes();
+        console.log("response", response);
         setRecipes(response.recipes);
       } catch (error) {
         console.error("Failed to fetch recipes", error);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 

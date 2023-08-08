@@ -12,6 +12,7 @@ const Ingredient = () => {
   const { id } = useParams();
   const [ingredient, setIngredient] = useState(null);
   const { isSaved, handleIngredientSave } = useSaveIngredient(id);
+  const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -21,15 +22,23 @@ const Ingredient = () => {
 
   useEffect(() => {
     async function fetchIngredient() {
-      const response = await RemplrApi.getIngredient(id);
-      setIngredient(response.ingredient);
+      try {
+        const response = await RemplrApi.getIngredient(id);
+        setIngredient(response.ingredient);
+      } catch (err) {
+        console.error("Failed to fetch ingredient", err);
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchIngredient();
   }, [id]);
 
   return (
     <div className="ingredient">
-      {ingredient && (
+      {isLoading ? ( // Conditional rendering based on loading state
+        <div>Loading...</div>
+      ) : (
         <div className="ingredient-detail">
           <img
             src={
