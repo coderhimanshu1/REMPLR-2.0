@@ -44,15 +44,15 @@ const Nav = () => {
             <Link exact to="/recipes">
               Recipes
             </Link>
-            <Link exact to="/mealplans">
-              MealPlans
+            <Link exact to="/mealplanner">
+              MealPlanner
             </Link>
             <Link exact to="/profile">
               My Profile
             </Link>
-            <Link className="nav-logout" onClick={logout}>
+            <button className="nav-logout" onClick={logout}>
               Log Out
-            </Link>
+            </button>
           </div>
         ) : (
           <div className="nav-links">

@@ -17,7 +17,7 @@
   right: 0;
   width: 45%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
   z-index: 999;
   overflow-y: auto;
@@ -49,16 +49,12 @@
   margin: 2%;
 }
 
-.nav-logout {
-  text-align: center;
-  width: 120px;
+.nav-links button {
   border-radius: 10px;
-  margin: 2%;
-  width: 200px;
+  margin: 20%;
   padding: 10px;
   background-color: #bb0a21;
   border: 2px solid #011627;
-  font-size: 100%;
   cursor: pointer;
   border-bottom-width: 5px;
 }

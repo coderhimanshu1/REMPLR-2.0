@@ -4,6 +4,7 @@ import { decodeToken } from "react-jwt";
 import useLocalStorage from "./hooks/useLocalStorage";
 import "./styles/common/common.css";
 import UserContext from "./routes/common/userContext";
+import RemplrApi from "./helper/api";
 import Home from "./routes/home";
 import Nav from "./routes/common/nav";
 import LoginForm from "./routes/auth/login";
@@ -12,7 +13,8 @@ import Ingredients from "./routes/ingredients/ingredients";
 import Ingredient from "./routes/ingredients/ingredient";
 import Recipes from "./routes/recipes/recipes";
 import Recipe from "./routes/recipes/recipe";
-import RemplrApi from "./helper/api";
+import MealPlanner from "./routes/mealplans/mealPlanner";
+
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -107,6 +109,7 @@ function App() {
               <Route path="/ingredients/:id" element={<Ingredient />} />
               <Route path="/recipes" element={<Recipes />} />
               <Route path="/recipes/:id" element={<Recipe />} />
+              <Route path="/mealplanner" element={<MealPlanner />} />
             </Routes>
           </UserContext.Provider>
         </Router>
