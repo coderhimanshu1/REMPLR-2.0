@@ -6,7 +6,7 @@ import RecipeCard from "./recipeCard";
 import Alert from "../common/alert";
 import UserContext from "../common/userContext";
 
-function Recipes() {
+function Recipes({ insideModal, handleAddRecipe, showAddButton }) {
   const [recipes, setRecipes] = useState([]);
   const [loading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
@@ -20,7 +20,6 @@ function Recipes() {
     const fetchRecipes = async () => {
       try {
         const response = await RemplrApi.getRecipes();
-        console.log("response", response);
         setRecipes(response.recipes);
       } catch (error) {
         console.error("Failed to fetch recipes", error);
@@ -45,9 +44,14 @@ function Recipes() {
             ]}
           />
           {recipes.map((recipe) => (
-            <Link to={`/recipes/${recipe.id}`}>
-              <RecipeCard recipe={recipe} />
-            </Link>
+            <div className="recipe-card">
+              <Link to={`/recipes/${recipe.id}`}>
+                <RecipeCard recipe={recipe} handleAddRecipe={handleAddRecipe} />
+              </Link>
+              {showAddButton && (
+                <button onClick={() => handleAddRecipe(recipe)}>Add</button>
+              )}
+            </div>
           ))}
         </>
       )}
