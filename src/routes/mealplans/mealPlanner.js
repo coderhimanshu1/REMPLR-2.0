@@ -22,6 +22,7 @@ const MealPlanner = () => {
 
   const handleResetClick = () => {
     setMealTypes((prevState) => ({
+      ...prevState,
       showMealDays: false,
       showBreakfast: false,
       showLunch: false,
@@ -30,6 +31,9 @@ const MealPlanner = () => {
     }));
   };
 
+  const handleDeleteClick = (type) => {
+    setMealTypes((prevState) => ({ ...prevState, [type]: false }));
+  };
   return (
     <div className="mealplanner">
       <h1>Meal Plan Creator</h1>
@@ -73,10 +77,21 @@ const MealPlanner = () => {
         <table>
           <thead>{mealTypes.showMealDays && <MealDays />}</thead>
           <tbody>
-            {mealTypes.showBreakfast && <MealType type="breakfast" />}
-            {mealTypes.showLunch && <MealType type="lunch" />}
-            {mealTypes.showDinner && <MealType type="dinner" />}
-            {mealTypes.showSnack && <MealType type="snack" />}
+            {mealTypes.showBreakfast && (
+              <MealType
+                type="breakfast"
+                handleDeleteClick={handleDeleteClick}
+              />
+            )}
+            {mealTypes.showLunch && (
+              <MealType type="lunch" handleDeleteClick={handleDeleteClick} />
+            )}
+            {mealTypes.showDinner && (
+              <MealType type="dinner" handleDeleteClick={handleDeleteClick} />
+            )}
+            {mealTypes.showSnack && (
+              <MealType type="snack" handleDeleteClick={handleDeleteClick} />
+            )}
           </tbody>
         </table>
       </div>

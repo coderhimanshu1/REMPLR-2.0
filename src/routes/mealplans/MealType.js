@@ -2,7 +2,7 @@ import "../../styles/mealplans/mealType.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const MealType = ({ type }) => {
+const MealType = ({ type, handleDeleteClick }) => {
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -30,7 +30,14 @@ const MealType = ({ type }) => {
       {daysOfWeek.map((day, index) => (
         <td className="meal-cell" key={day} id={`${prefix}-${index}`}></td>
       ))}
-      <button className="delete-button">
+      <button
+        className={`${type}-button`}
+        onClick={() =>
+          handleDeleteClick(
+            `show${type.charAt(0).toUpperCase() + type.slice(1)}`
+          )
+        }
+      >
         <FontAwesomeIcon icon={faTimes} />
       </button>
     </tr>

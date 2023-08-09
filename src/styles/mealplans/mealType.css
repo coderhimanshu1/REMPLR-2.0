@@ -1,7 +1,5 @@
-.meal-row {
-}
-
 .meal-type {
+  text-align: center;
   transform: rotate(-90deg);
   background: none;
 }
@@ -27,7 +25,10 @@
   height: 50%;
 }
 
-.delete-button {
+.breakfast-button,
+.lunch-button,
+.snack-button,
+.dinner-button {
   background: none;
   border: none;
   color: red;
@@ -38,11 +39,17 @@
   cursor: pointer;
 }
 
-.delete-button:hover {
+.breakfast-button:hover,
+.lunch-button:hover,
+.snack-button:hover,
+.dinner-button:hover {
   font-size: 190%;
 }
 
-.delete-button:active {
+.breakfast-button:active,
+.lunch-button:active,
+.snack-button:active,
+.dinner-button:active {
   font-size: 120%;
   color: #6b0504;
 }
