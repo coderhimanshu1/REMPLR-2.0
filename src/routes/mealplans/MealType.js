@@ -10,6 +10,7 @@ const MealType = ({ type, handleDeleteClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [clickedCell, setClickedCell] = useState(null);
+  const [recipesForCells, setRecipesForCells] = useState({});
 
   const daysOfWeek = [
     "Sunday",
@@ -32,7 +33,6 @@ const MealType = ({ type, handleDeleteClick }) => {
 
   return (
     <>
-      {" "}
       <tr className="meal-row">
         <td className="meal-type">
           {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -43,12 +43,12 @@ const MealType = ({ type, handleDeleteClick }) => {
             key={day}
             id={`${prefix}-${index}`}
             onClick={() => {
-              setClickedCell();
+              setClickedCell(`${prefix}-${index}`);
               setIsModalOpen(true);
             }}
           >
-            {selectedRecipe && clickedCell ? (
-              <RecipeCard recipe={selectedRecipe} />
+            {recipesForCells[`${prefix}-${index}`] ? (
+              <RecipeCard recipe={recipesForCells[`${prefix}-${index}`]} />
             ) : (
               ""
             )}
@@ -75,9 +75,12 @@ const MealType = ({ type, handleDeleteClick }) => {
         <Recipes
           showAddButton={true}
           handleAddRecipe={(recipe) => {
+            setRecipesForCells((prevRecipes) => ({
+              ...prevRecipes,
+              [clickedCell]: recipe,
+            }));
             setSelectedRecipe(recipe);
             setIsModalOpen(false);
-            setClickedCell(null);
           }}
         />
       </Modal>
