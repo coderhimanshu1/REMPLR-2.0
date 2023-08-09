@@ -20,6 +20,16 @@ const MealPlanner = () => {
     setMealTypes((prevState) => ({ ...prevState, [type]: true }));
   };
 
+  const handleResetClick = () => {
+    setMealTypes((prevState) => ({
+      showMealDays: false,
+      showBreakfast: false,
+      showLunch: false,
+      showDinner: false,
+      showSnack: false,
+    }));
+  };
+
   return (
     <div className="mealplanner">
       <h1>Meal Plan Creator</h1>
@@ -74,7 +84,7 @@ const MealPlanner = () => {
       {mealTypes.showMealDays && (
         <div className="mealplanner-button-area">
           <div>
-            <button>Reset</button>
+            <button onClick={() => handleResetClick()}>Reset</button>
           </div>
           <div>
             <button onClick={() => handleMealTypeClick("showLunch")}>
