@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 import UserContext from "./common/userContext";
 import { Carousel } from "react-bootstrap";
-import Brand from "./common/brand";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -11,9 +10,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-header">
-        <div className="home-header-top">
-          <Brand />
-        </div>
+        <div className="home-header-top"></div>
         <div className="home-text">
           <h1>REMPLR</h1>
           <small>Meal Plans Made Simple.</small>

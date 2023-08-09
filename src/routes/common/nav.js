@@ -8,7 +8,6 @@ import RemplrApi from "../../helper/api";
 import Brand from "./brand";
 
 const Nav = () => {
-  // const [scrolled, setScrolled] = useState(false);
   const { currentUser, setCurrentUser, setToken } = useContext(UserContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);

@@ -40,7 +40,6 @@ const RegisterForm = ({ register }) => {
 
   return (
     <div className="form-container">
-      <Brand />
       <form onSubmit={handleSubmit}>
         <h1>GET STARTED!</h1>
         <label>

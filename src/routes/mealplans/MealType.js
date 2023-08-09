@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./modal";
 import Recipes from "../recipes/recipes";
+import RecipeCard from "../recipes/recipeCard";
 
 const MealType = ({ type, handleDeleteClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [clickedDay, setClickedDay] = useState(null);
+  const [clickedCell, setClickedCell] = useState(null);
 
   const daysOfWeek = [
     "Sunday",
@@ -42,11 +43,15 @@ const MealType = ({ type, handleDeleteClick }) => {
             key={day}
             id={`${prefix}-${index}`}
             onClick={() => {
-              setClickedDay(day);
+              setClickedCell();
               setIsModalOpen(true);
             }}
           >
-            {selectedRecipe && clickedDay === day ? selectedRecipe.title : ""}
+            {selectedRecipe && clickedCell ? (
+              <RecipeCard recipe={selectedRecipe} />
+            ) : (
+              ""
+            )}
           </td>
         ))}
         <button
@@ -64,7 +69,7 @@ const MealType = ({ type, handleDeleteClick }) => {
         isOpen={isModalOpen}
         onClose={() => {
           setIsModalOpen(false);
-          setClickedDay(null);
+          setClickedCell(null);
         }}
       >
         <Recipes
@@ -72,7 +77,7 @@ const MealType = ({ type, handleDeleteClick }) => {
           handleAddRecipe={(recipe) => {
             setSelectedRecipe(recipe);
             setIsModalOpen(false);
-            setClickedDay(null);
+            setClickedCell(null);
           }}
         />
       </Modal>

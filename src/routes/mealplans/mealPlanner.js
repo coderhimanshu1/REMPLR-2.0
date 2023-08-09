@@ -26,7 +26,7 @@ const MealPlanner = () => {
     setFormData((l) => ({ ...l, [name]: value }));
   };
 
-  const handleClick = () => {
+  const handleStartClick = () => {
     setMealTypes((prevState) => ({
       ...prevState,
       showMealPlanName: true,
@@ -67,7 +67,7 @@ const MealPlanner = () => {
       <h1>Meal Plan Creator</h1>
       <MealPlannerSteps />
       <div className="mealplanner-start">
-        <button onClick={handleClick}>Create Meal Plan</button>
+        <button onClick={handleStartClick}>Create Meal Plan</button>
       </div>
       <div className="mealplanner-area">
         {mealTypes.showMealPlanName && (
@@ -119,20 +119,32 @@ const MealPlanner = () => {
         </div>
         {mealTypes.showMealDays && (
           <div className="mealplanner-button-area">
-            <div>
+            <div className="mealplanner-reset">
               <button onClick={() => handleResetClick()}>Reset</button>
             </div>
-            <div>
-              <button onClick={() => handleMealTypeClick("showLunch")}>
+            <div className="mealplanner-meals">
+              <button
+                className="mealplanner-lunch-button"
+                onClick={() => handleMealTypeClick("showLunch")}
+              >
                 Lunch
               </button>
-              <button onClick={() => handleMealTypeClick("showBreakfast")}>
+              <button
+                className="mealplanner-breakfast-button"
+                onClick={() => handleMealTypeClick("showBreakfast")}
+              >
                 Breakfast
               </button>
-              <button onClick={() => handleMealTypeClick("showDinner")}>
+              <button
+                className="mealplanner-dinner-button"
+                onClick={() => handleMealTypeClick("showDinner")}
+              >
                 Dinner
               </button>
-              <button onClick={() => handleMealTypeClick("showSnack")}>
+              <button
+                className="mealplanner-snack-button"
+                onClick={() => handleMealTypeClick("showSnack")}
+              >
                 Snack
               </button>
             </div>

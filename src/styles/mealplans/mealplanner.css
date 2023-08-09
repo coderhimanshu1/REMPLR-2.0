@@ -75,3 +75,72 @@ td {
 .mealplanner-start button:active {
   font-size: 80%;
 }
+
+.mealplanner-button-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2% 0;
+}
+.mealplanner-button-area button {
+  width: 120px;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 10px 5px;
+
+  font-size: 100%;
+  cursor: pointer;
+  border-bottom-width: 5px;
+}
+
+.mealplanner-reset {
+  padding: 9%;
+}
+
+.mealplanner-reset button:hover {
+  background-color: #011627;
+  color: #bb0a21;
+  border: 2px solid #bb0a21;
+  border-bottom-width: 5px;
+}
+
+.mealplanner-reset button {
+  color: #f1f5f2;
+  background-color: #bb0a21;
+  border: 2px solid #011627;
+  border-bottom-width: 5px;
+}
+.mealplanner-button-area button:active {
+  font-size: 90%;
+  width: 110px;
+  height: 50px;
+}
+
+.mealplanner-meals {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2%;
+}
+
+.mealplanner-breakfast-button {
+  border: 2px solid #21897e;
+}
+
+.mealplanner-lunch-button {
+  border: 2px solid #835d69;
+}
+
+.mealplanner-dinner-button {
+  border: 2px solid #2d1e2f;
+}
+
+.mealplanner-snack-button {
+  border: 2px solid #a6963a;
+}
+
+.mealplanner-meals button:hover {
+  background-color: #011627;
+  color: #27c267;
+  border: 2px solid #16703c;
+  border-bottom-width: 5px;
+}
