@@ -73,7 +73,6 @@ const MealPlanner = () => {
         <table>
           <thead>{mealTypes.showMealDays && <MealDays />}</thead>
           <tbody>
-            {mealTypes.showBreakfast && <MealDays />}
             {mealTypes.showBreakfast && <MealType type="breakfast" />}
             {mealTypes.showLunch && <MealType type="lunch" />}
             {mealTypes.showDinner && <MealType type="dinner" />}

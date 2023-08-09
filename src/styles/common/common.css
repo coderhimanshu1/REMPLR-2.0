@@ -2,31 +2,31 @@ svg {
   font-size: 150%;
   padding: 3%;
   margin: 1%;
-  color: #bb0a21;
+  /* color: #bb0a21; */
   cursor: pointer;
 }
 
-table {
+.nutrition-table {
   background-color: #f1f5f2;
   margin: 2%;
   width: 460px;
   border: 2px black solid;
 }
 
-th {
+.nutrition-th {
   font-weight: 500;
   padding: 2%;
 }
-thead {
+.nutrition-thead {
   background-color: #6f8f72;
   color: #f1f5f2;
 }
 
-tbody {
+.nutrition-tbody {
   background-color: #f1f5f2;
 }
 
-td {
+.nutrition-td {
   background-color: #d1dcd2;
   padding: 5px;
 }

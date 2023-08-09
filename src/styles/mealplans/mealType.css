@@ -1,0 +1,48 @@
+.meal-row {
+}
+
+.meal-type {
+  transform: rotate(-90deg);
+  background: none;
+}
+
+.meal-cell {
+  position: relative;
+  background-color: #acaeac;
+  border: 2px black solid;
+  height: 100px;
+  width: 500px;
+}
+
+.meal-cell:hover {
+  cursor: pointer;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../../images/plus.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50%;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: red;
+  padding: 0;
+  padding-left: 4px;
+  margin: 0;
+  font-size: 130%;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  font-size: 190%;
+}
+
+.delete-button:active {
+  font-size: 120%;
+  color: #6b0504;
+}

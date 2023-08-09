@@ -29,3 +29,14 @@
   width: 80%;
   padding: 2%;
 }
+
+.mealplanner-area table {
+  width: 90%;
+  color: #f1f5f2;
+}
+
+.mealplanner-area th,
+td {
+  font-weight: 400;
+  font-size: 120%;
+}

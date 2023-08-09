@@ -1,3 +1,7 @@
+import "../../styles/mealplans/mealType.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
 const MealType = ({ type }) => {
   const daysOfWeek = [
     "Sunday",
@@ -19,14 +23,16 @@ const MealType = ({ type }) => {
   const prefix = typePrefixMap[type];
 
   return (
-    <tr>
-      <td>{type.charAt(0).toUpperCase() + type.slice(1)}</td>
+    <tr className="meal-row">
+      <td className="meal-type">
+        {type.charAt(0).toUpperCase() + type.slice(1)}
+      </td>
       {daysOfWeek.map((day, index) => (
-        <td key={day} id={`${prefix}-${index}`}>
-          +
-        </td>
+        <td className="meal-cell" key={day} id={`${prefix}-${index}`}></td>
       ))}
-      <button>x</button>
+      <button className="delete-button">
+        <FontAwesomeIcon icon={faTimes} />
+      </button>
     </tr>
   );
 };
