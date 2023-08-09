@@ -298,6 +298,7 @@ class RemplrApi {
 
   /** Create a new meal plan */
   static async createMealPlan(data) {
+    console.log("data", data);
     return await this.request(`mealplans`, data, "post");
   }
 

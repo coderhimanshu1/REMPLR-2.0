@@ -6,7 +6,7 @@ import RecipeCard from "./recipeCard";
 import Alert from "../common/alert";
 import UserContext from "../common/userContext";
 
-function Recipes({ insideModal, handleAddRecipe, showAddButton }) {
+function Recipes({ handleAddRecipe, showAddButton }) {
   const [recipes, setRecipes] = useState([]);
   const [loading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);

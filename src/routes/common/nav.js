@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/common/nav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,11 +22,11 @@ const Nav = () => {
   };
 
   return (
-    <>
+    <div onClick={() => setMenuOpen(!menuOpen)}>
       <div className="nav-brand">
         <Brand />
       </div>
-      <div className="nav-bars" onClick={() => setMenuOpen(!menuOpen)}>
+      <div className="nav-bars">
         <FontAwesomeIcon
           icon={menuOpen ? faTimes : faBars}
           style={menuOpen ? { transform: "rotate(90deg)" } : {}}
@@ -68,7 +68,7 @@ const Nav = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

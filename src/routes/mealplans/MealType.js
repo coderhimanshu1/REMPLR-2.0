@@ -8,6 +8,7 @@ import Recipes from "../recipes/recipes";
 const MealType = ({ type, handleDeleteClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [clickedDay, setClickedDay] = useState(null);
 
   const daysOfWeek = [
     "Sunday",
@@ -40,9 +41,12 @@ const MealType = ({ type, handleDeleteClick }) => {
             className="meal-cell"
             key={day}
             id={`${prefix}-${index}`}
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setClickedDay(day);
+              setIsModalOpen(true);
+            }}
           >
-            {selectedRecipe && selectedRecipe.title}
+            {selectedRecipe && clickedDay === day ? selectedRecipe.title : ""}
           </td>
         ))}
         <button
@@ -56,12 +60,19 @@ const MealType = ({ type, handleDeleteClick }) => {
           <FontAwesomeIcon icon={faTimes} />
         </button>
       </tr>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setClickedDay(null);
+        }}
+      >
         <Recipes
           showAddButton={true}
           handleAddRecipe={(recipe) => {
             setSelectedRecipe(recipe);
             setIsModalOpen(false);
+            setClickedDay(null);
           }}
         />
       </Modal>

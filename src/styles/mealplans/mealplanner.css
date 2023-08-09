@@ -30,9 +30,14 @@
   padding: 2%;
 }
 
+.mealplanner-area {
+  padding: 0.5%;
+  margin: 0.9%;
+  background-color: #f1f5f2;
+}
+
 .mealplanner-area table {
   width: 90%;
-  color: #f1f5f2;
 }
 
 .mealplanner-area th,
@@ -40,4 +45,33 @@ td {
   font-weight: 400;
   font-size: 120%;
   text-align: center;
+}
+
+.mealplanner-start {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.mealplanner-start button {
+  width: 190px;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 15px 5px;
+  background-color: #f1f5f2;
+  border: 2px solid #011627;
+  font-size: 120%;
+  cursor: pointer;
+  border-bottom-width: 5px;
+}
+
+.mealplanner-start button:hover {
+  background-color: #011627;
+  color: #27c267;
+  border: 2px solid #0c3f21;
+  border-bottom-width: 5px;
+}
+
+.mealplanner-start button:active {
+  font-size: 80%;
 }
