@@ -144,3 +144,34 @@ td {
   border: 2px solid #16703c;
   border-bottom-width: 5px;
 }
+
+/* Mobile screen rotation */
+@media (max-width: 768px) {
+  .mealplanner-area td {
+    height: 80px;
+  }
+  .mealplanner-area table {
+    transform: rotate(90deg);
+    margin: 250px 0;
+    width: 60%;
+  }
+
+  .mealplanner-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    width: 100%;
+  }
+
+  .mealplanner-button-area {
+    margin: 190px;
+  }
+
+  /* Adjust the table cells since they will be rotated too */
+
+  .mealplanner-area td {
+    transform: rotate(-90deg);
+  }
+}

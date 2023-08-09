@@ -90,33 +90,32 @@ const MealPlanner = () => {
               {formErrors.length ? (
                 <Alert type="error" messages={formErrors} />
               ) : null}
-              <button>Start</button>
+              <button>Save</button>
             </form>
           </div>
         )}
 
-        <div>
-          <table>
-            <thead>{mealTypes.showMealDays && <MealDays />}</thead>
-            <tbody>
-              {mealTypes.showBreakfast && (
-                <MealType
-                  type="breakfast"
-                  handleDeleteClick={handleDeleteClick}
-                />
-              )}
-              {mealTypes.showLunch && (
-                <MealType type="lunch" handleDeleteClick={handleDeleteClick} />
-              )}
-              {mealTypes.showDinner && (
-                <MealType type="dinner" handleDeleteClick={handleDeleteClick} />
-              )}
-              {mealTypes.showSnack && (
-                <MealType type="snack" handleDeleteClick={handleDeleteClick} />
-              )}
-            </tbody>
-          </table>
-        </div>
+        <table>
+          <thead>{mealTypes.showMealDays && <MealDays />}</thead>
+          <tbody>
+            {mealTypes.showBreakfast && (
+              <MealType
+                type="breakfast"
+                handleDeleteClick={handleDeleteClick}
+              />
+            )}
+            {mealTypes.showLunch && (
+              <MealType type="lunch" handleDeleteClick={handleDeleteClick} />
+            )}
+            {mealTypes.showDinner && (
+              <MealType type="dinner" handleDeleteClick={handleDeleteClick} />
+            )}
+            {mealTypes.showSnack && (
+              <MealType type="snack" handleDeleteClick={handleDeleteClick} />
+            )}
+          </tbody>
+        </table>
+
         {mealTypes.showMealDays && (
           <div className="mealplanner-button-area">
             <div className="mealplanner-reset">

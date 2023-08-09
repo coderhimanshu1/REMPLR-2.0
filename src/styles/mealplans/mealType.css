@@ -6,10 +6,24 @@
 
 .meal-cell {
   position: relative;
-  background-color: #acaeac;
   border: 2px black solid;
   height: 100px;
   width: 500px;
+}
+
+.meal-cell .recipes-card {
+  width: 140px;
+  height: 150px;
+  padding: 20%;
+  margin: 1px;
+}
+
+.meal-cell .recipes-card h3 {
+  font-size: 50%;
+}
+
+.meal-cell .recipes-card .save-heart {
+  display: none;
 }
 
 .meal-cell:hover {
@@ -52,4 +66,21 @@
 .dinner-button:active {
   font-size: 120%;
   color: #6b0504;
+}
+
+@media (max-width: 768px) {
+  .meal-cell .recipes-card {
+    width: 75px;
+    height: 75px;
+    padding: 2%;
+    margin: 0;
+  }
+
+  .meal-cell .recipes-card img {
+    width: 50%;
+  }
+
+  .meal-cell .recipes-card h3 {
+    font-size: 46%;
+  }
 }
