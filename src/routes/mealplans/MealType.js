@@ -6,11 +6,15 @@ import Modal from "./modal";
 import Recipes from "../recipes/recipes";
 import RecipeCard from "../recipes/recipeCard";
 
-const MealType = ({ type, handleDeleteClick }) => {
+const MealType = ({
+  type,
+  handleDeleteClick,
+  setRecipesForCells,
+  recipesForCells,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [clickedCell, setClickedCell] = useState(null);
-  const [recipesForCells, setRecipesForCells] = useState({});
 
   const daysOfWeek = [
     "Sunday",
@@ -31,29 +35,43 @@ const MealType = ({ type, handleDeleteClick }) => {
 
   const prefix = typePrefixMap[type];
 
+  const removeRecipeFromCell = (cellId) => {
+    setRecipesForCells((prev) => {
+      const updatedRecipes = { ...prev };
+      delete updatedRecipes[cellId];
+      return updatedRecipes;
+    });
+  };
+
   return (
     <>
       <tr className="meal-row">
         <td className="meal-type">
           {type.charAt(0).toUpperCase() + type.slice(1)}
         </td>
-        {daysOfWeek.map((day, index) => (
-          <td
-            className="meal-cell"
-            key={day}
-            id={`${prefix}-${index}`}
-            onClick={() => {
-              setClickedCell(`${prefix}-${index}`);
-              setIsModalOpen(true);
-            }}
-          >
-            {recipesForCells[`${prefix}-${index}`] ? (
-              <RecipeCard recipe={recipesForCells[`${prefix}-${index}`]} />
-            ) : (
-              ""
-            )}
-          </td>
-        ))}
+        {daysOfWeek.map((day, index) => {
+          const cellId = `${prefix}-${index}`;
+          return (
+            <td
+              className="meal-cell"
+              key={day}
+              id={cellId}
+              onClick={() => {
+                setClickedCell(cellId);
+                setIsModalOpen(true);
+              }}
+            >
+              {recipesForCells[cellId] && (
+                <div className="recipe-container">
+                  <RecipeCard recipe={recipesForCells[cellId]} />
+                  <button onClick={() => removeRecipeFromCell(cellId)}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </button>
+                </div>
+              )}
+            </td>
+          );
+        })}
         <button
           className={`${type}-button`}
           onClick={() =>

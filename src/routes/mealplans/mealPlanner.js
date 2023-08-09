@@ -20,6 +20,7 @@ const MealPlanner = () => {
     mealPlanName: "",
   });
   const [formErrors, setFormErrors] = useState([]);
+  const [recipesForCells, setRecipesForCells] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,9 +57,27 @@ const MealPlanner = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let result = await RemplrApi.createMealPlan(formData);
-    if (result.errors) {
-      setFormErrors(result.errors);
+
+    const recipes = [];
+    for (const [cellId, recipe] of Object.entries(recipesForCells)) {
+      const [mealType, dayIndex] = cellId.split("-");
+      recipes.push({
+        recipe_id: recipe.id,
+        meal_type: mealType,
+        meal_day: Number(dayIndex) + 1,
+      });
+    }
+
+    const dataToSend = {
+      ...formData,
+      recipes,
+    };
+
+    try {
+      let result = await RemplrApi.createMealPlan(dataToSend);
+      console.log("result", result);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -70,31 +89,6 @@ const MealPlanner = () => {
         <button onClick={handleStartClick}>Create Meal Plan</button>
       </div>
       <div className="mealplanner-area">
-        {mealTypes.showMealPlanName && (
-          <div className="mealplanner-name">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="mealPlanName"
-                name="mealPlanName"
-                placeholder="Enter meal plan name"
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="username"
-                name="created_by"
-                placeholder="enter username to confirm"
-                onChange={handleChange}
-                required
-              />
-              {formErrors.length ? (
-                <Alert type="error" messages={formErrors} />
-              ) : null}
-              <button>Save</button>
-            </form>
-          </div>
-        )}
-
         <table>
           <thead>{mealTypes.showMealDays && <MealDays />}</thead>
           <tbody>
@@ -102,16 +96,33 @@ const MealPlanner = () => {
               <MealType
                 type="breakfast"
                 handleDeleteClick={handleDeleteClick}
+                recipesForCells={recipesForCells}
+                setRecipesForCells={setRecipesForCells}
               />
             )}
             {mealTypes.showLunch && (
-              <MealType type="lunch" handleDeleteClick={handleDeleteClick} />
+              <MealType
+                type="lunch"
+                handleDeleteClick={handleDeleteClick}
+                recipesForCells={recipesForCells}
+                setRecipesForCells={setRecipesForCells}
+              />
             )}
             {mealTypes.showDinner && (
-              <MealType type="dinner" handleDeleteClick={handleDeleteClick} />
+              <MealType
+                type="dinner"
+                handleDeleteClick={handleDeleteClick}
+                recipesForCells={recipesForCells}
+                setRecipesForCells={setRecipesForCells}
+              />
             )}
             {mealTypes.showSnack && (
-              <MealType type="snack" handleDeleteClick={handleDeleteClick} />
+              <MealType
+                type="snack"
+                handleDeleteClick={handleDeleteClick}
+                recipesForCells={recipesForCells}
+                setRecipesForCells={setRecipesForCells}
+              />
             )}
           </tbody>
         </table>
@@ -123,17 +134,18 @@ const MealPlanner = () => {
             </div>
             <div className="mealplanner-meals">
               <button
-                className="mealplanner-lunch-button"
-                onClick={() => handleMealTypeClick("showLunch")}
-              >
-                Lunch
-              </button>
-              <button
                 className="mealplanner-breakfast-button"
                 onClick={() => handleMealTypeClick("showBreakfast")}
               >
                 Breakfast
               </button>
+              <button
+                className="mealplanner-lunch-button"
+                onClick={() => handleMealTypeClick("showLunch")}
+              >
+                Lunch
+              </button>
+
               <button
                 className="mealplanner-dinner-button"
                 onClick={() => handleMealTypeClick("showDinner")}
@@ -149,6 +161,30 @@ const MealPlanner = () => {
             </div>
           </div>
         )}
+        <form onSubmit={handleSubmit}>
+          {mealTypes.showMealPlanName && (
+            <div className="mealplanner-name">
+              <input
+                type="mealPlanName"
+                name="mealPlanName"
+                placeholder="Enter meal plan name"
+                onChange={handleChange}
+                required
+              />
+              {formErrors.length ? (
+                <Alert type="error" messages={formErrors} />
+              ) : null}
+              <input
+                type="username"
+                name="created_by"
+                placeholder="enter username to confirm"
+                onChange={handleChange}
+                required
+              />
+              <button>Save</button>
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );

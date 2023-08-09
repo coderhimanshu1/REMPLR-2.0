@@ -145,6 +145,17 @@ td {
   border-bottom-width: 5px;
 }
 
+.mealplanner-save {
+  padding: 40% 0;
+}
+
+.mealplanner-save button {
+  color: #f1f5f2;
+  background-color: #16703c;
+  border: 2px solid #011627;
+  border-bottom-width: 5px;
+}
+
 /* Mobile screen rotation */
 @media (max-width: 768px) {
   .mealplanner-area td {
