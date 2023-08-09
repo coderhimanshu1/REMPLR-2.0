@@ -1,13 +1,9 @@
-html {
-  height: 100%;
-  width: 100%;
-}
-
 .mealplanner {
   background-color: #2b7878;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: center;
+
   background-color: #16703c;
   padding-top: 150px;
 }
@@ -19,7 +15,6 @@ html {
 
 .mealplanner-steps {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   background-repeat: no-repeat;
   position: relative;
@@ -28,10 +23,9 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 10vh;
-  margin: 40px 180px;
-  padding: 2%;
   color: #f1f5f2;
   overflow: hidden;
-  height: 100%;
+  margin: 5% 10%;
+  width: 80%;
+  padding: 2%;
 }

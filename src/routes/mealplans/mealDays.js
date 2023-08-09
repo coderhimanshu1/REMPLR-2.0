@@ -1,4 +1,5 @@
 const daysOfWeek = [
+  "",
   "Sunday",
   "Monday",
   "Tuesday",

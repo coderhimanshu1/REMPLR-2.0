@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/mealplans/mealplanner.css";
 import MealDays from "./mealDays";
+import MealType from "./MealType";
 
 const MealPlanner = () => {
   const [mealTypes, setMealTypes] = useState({
@@ -63,31 +64,34 @@ const MealPlanner = () => {
           <thead>{mealTypes.showMealDays && <MealDays />}</thead>
           <tbody>
             {mealTypes.showBreakfast && <MealDays />}
-            {mealTypes.showLunch && <MealDays />}
-            {mealTypes.showDinner && <MealDays />}
-            {mealTypes.showSnack && <MealDays />}
+            {mealTypes.showBreakfast && <MealType type="breakfast" />}
+            {mealTypes.showLunch && <MealType type="lunch" />}
+            {mealTypes.showDinner && <MealType type="dinner" />}
+            {mealTypes.showSnack && <MealType type="snack" />}
           </tbody>
         </table>
       </div>
-      <div className="mealplanner-button-area">
-        <div>
-          <button>Reset</button>
+      {mealTypes.showMealDays && (
+        <div className="mealplanner-button-area">
+          <div>
+            <button>Reset</button>
+          </div>
+          <div>
+            <button onClick={() => handleMealTypeClick("showLunch")}>
+              Lunch
+            </button>
+            <button onClick={() => handleMealTypeClick("showBreakfast")}>
+              Breakfast
+            </button>
+            <button onClick={() => handleMealTypeClick("showDinner")}>
+              Dinner
+            </button>
+            <button onClick={() => handleMealTypeClick("showSnack")}>
+              Snack
+            </button>
+          </div>
         </div>
-        <div>
-          <button onClick={() => handleMealTypeClick("showLunch")}>
-            Lunch
-          </button>
-          <button onClick={() => handleMealTypeClick("showBreakfast")}>
-            Breakfast
-          </button>
-          <button onClick={() => handleMealTypeClick("showDinner")}>
-            Dinner
-          </button>
-          <button onClick={() => handleMealTypeClick("showSnack")}>
-            Snack
-          </button>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
