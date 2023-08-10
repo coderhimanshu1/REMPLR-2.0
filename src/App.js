@@ -17,6 +17,7 @@ import MealPlanner from "./routes/mealplans/mealPlanner";
 
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Profile from "./routes/users/profile";
 
 const App = () => {
   const [token, setToken] = useLocalStorage("token");
@@ -113,6 +114,7 @@ const App = () => {
               <Route path="/recipes" element={<Recipes />} />
               <Route path="/recipes/:id" element={<Recipe />} />
               <Route path="/mealplanner" element={<MealPlanner />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </UserContext.Provider>
         </Router>

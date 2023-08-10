@@ -1,12 +1,10 @@
 .form-container {
+  display: flex;
+  justify-content: center;
   position: relative;
   height: 100vh;
   background-color: #16703c;
-}
-
-.form-container img {
-  width: 80px;
-  margin: 10px 30px;
+  align-items: center;
 }
 
 .form-container form {
@@ -17,8 +15,8 @@
   background-color: #fcfced;
   border-radius: 5px;
   left: 30%;
-  top: 40%;
   right: 30%;
+  padding: 5% 0;
   width: 40vi;
 }
 
