@@ -5,7 +5,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import "./styles/common/common.css";
 import UserContext from "./routes/common/userContext";
 import RemplrApi from "./helper/api";
-import Home from "./routes/home";
+import Home from "./routes/homepage/home";
 import Nav from "./routes/common/nav";
 import LoginForm from "./routes/auth/login";
 import RegisterForm from "./routes/auth/register";
