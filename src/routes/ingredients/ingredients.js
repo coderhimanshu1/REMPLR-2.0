@@ -5,6 +5,7 @@ import "../../styles/ingredients/ingredients.css";
 import Alert from "../common/alert";
 import IngredientCard from "./ingredientCard";
 import UserContext from "../common/userContext";
+import LoadingScreen from "../common/loading";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -51,8 +52,8 @@ const Ingredients = () => {
 
   return (
     <div className="ingredients">
-      {isLoading ? ( // Conditional rendering based on loading state
-        <div>Loading...</div>
+      {isLoading ? (
+        <LoadingScreen />
       ) : (
         <>
           <Alert

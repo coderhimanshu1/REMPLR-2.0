@@ -7,6 +7,7 @@ import SaveHeartButton from "../common/saveHeartButton";
 import "../common/nutrition";
 import Nutrition from "../common/nutrition";
 import UserContext from "../common/userContext";
+import LoadingScreen from "../common/loading";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -31,7 +32,11 @@ const Recipe = () => {
   }, [id]);
 
   if (!recipe) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <LoadingScreen />
+      </div>
+    );
   }
 
   return (

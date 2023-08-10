@@ -7,6 +7,7 @@ import { useSaveIngredient } from "../../hooks/useSaveIngredient";
 import SaveHeartButton from "../common/saveHeartButton";
 import Nutrition from "../common/nutrition";
 import UserContext from "../common/userContext";
+import LoadingScreen from "../common/loading";
 
 const Ingredient = () => {
   const { id } = useParams();
@@ -37,7 +38,9 @@ const Ingredient = () => {
   return (
     <div className="ingredient">
       {isLoading ? ( // Conditional rendering based on loading state
-        <div>Loading...</div>
+        <div>
+          <LoadingScreen />
+        </div>
       ) : (
         <div className="ingredient-detail">
           <img

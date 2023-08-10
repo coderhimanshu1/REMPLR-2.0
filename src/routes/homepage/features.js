@@ -6,10 +6,10 @@ const Features = () => {
   const { currentUser } = useContext(UserContext);
   return (
     <div className="home-features">
-      <h1> FAVORITES</h1>
-      <div className="home-features-cards">
-        {currentUser ? (
-          <>
+      {currentUser ? (
+        <>
+          <h1> FAVORITES</h1>
+          <div className="home-features-cards">
             <Link to="/saved-ingredients">
               <div className="home-features-card1">
                 <h3> Ingredients</h3>
@@ -28,9 +28,12 @@ const Features = () => {
                 <small>Find your saved Meal plans here...</small>
               </div>
             </Link>
-          </>
-        ) : (
-          <>
+          </div>
+        </>
+      ) : (
+        <>
+          <h1> FEATURES</h1>
+          <div className="home-features-cards">
             <div className="home-features-card1">
               <h3>Ingredients Management</h3>
               <small>Get Ingredients information including its nutrition</small>
@@ -43,9 +46,9 @@ const Features = () => {
               <h3>Meal Plans Management</h3>
               <small>Create Meal Plans and share with your clients</small>
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

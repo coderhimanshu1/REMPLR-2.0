@@ -5,6 +5,7 @@ import "../../styles/recipes/recipes.css";
 import RecipeCard from "./recipeCard";
 import Alert from "../common/alert";
 import UserContext from "../common/userContext";
+import LoadingScreen from "../common/loading";
 
 function Recipes({ handleAddRecipe, showAddButton }) {
   const [recipes, setRecipes] = useState([]);
@@ -34,7 +35,9 @@ function Recipes({ handleAddRecipe, showAddButton }) {
   return (
     <div className="recipes">
       {loading ? (
-        <p>Loading...</p>
+        <div>
+          <LoadingScreen />
+        </div>
       ) : (
         <>
           <Alert
