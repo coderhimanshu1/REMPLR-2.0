@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import UserContext from "../common/userContext";
 import "../../styles/home.css";
-
 import Header from "./header";
 import About from "./about";
 import CallToAction from "./callToAction";

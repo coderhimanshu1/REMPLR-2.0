@@ -18,9 +18,10 @@ import MealPlanner from "./routes/mealplans/mealPlanner";
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+const App = () => {
   const [token, setToken] = useLocalStorage("token");
   const [currentUser, setCurrentUser] = useState(null);
+  const [justLoggedIn, setJustLoggedIn] = useState(false);
 
   // Get user information once we have token from API
   useEffect(() => {
@@ -92,6 +93,8 @@ function App() {
               currentUser,
               setCurrentUser,
               setToken,
+              justLoggedIn,
+              setJustLoggedIn,
             }}
           >
             <Nav />
@@ -116,6 +119,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;

@@ -8,6 +8,8 @@ body {
 
 .home-header {
   position: relative;
+  display: flex;
+  justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../images/home.jpg");
   background-size: cover;

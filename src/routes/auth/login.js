@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/common/auth.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "../common/alert";
+import UserContext from "../common/userContext";
 
 const LoginForm = ({ login }) => {
   const navigate = useNavigate();
@@ -12,6 +13,9 @@ const LoginForm = ({ login }) => {
     password: "",
   });
   const [formErrors, setFormErrors] = useState([]);
+
+  const { currentUser, justLoggedIn, setJustLoggedIn } =
+    useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +26,7 @@ const LoginForm = ({ login }) => {
     e.preventDefault();
     let result = await login(formData);
     if (result.success) {
+      setJustLoggedIn(true);
       navigate("/");
     } else {
       setFormErrors(result.errors);
