@@ -21,7 +21,6 @@ const LoginForm = ({ login }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let result = await login(formData);
-    if (!result) return <div>loading...</div>;
     if (result.success) {
       navigate("/");
     } else {

@@ -23,7 +23,7 @@ const MealPlanner = () => {
   });
   const [formErrors, setFormErrors] = useState([]);
   const [recipesForCells, setRecipesForCells] = useState({});
-
+  const [successMessage, setSuccessMessage] = useState("");
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -99,10 +99,24 @@ const MealPlanner = () => {
 
     try {
       let result = await RemplrApi.createMealPlan(dataToSend);
-      setFormErrors([]); // clear errors upon successful submission
+      setFormErrors([]);
+      // Clear meal planner area
+      setMealTypes((prevState) => ({
+        ...prevState,
+        showMealPlanName: false,
+        showMealDays: false,
+        showBreakfast: false,
+        showLunch: false,
+        showDinner: false,
+        showSnack: false,
+      }));
+      setSuccessMessage(
+        `Meal plan ${formData.mealPlanName} saved successfully!`
+      );
     } catch (error) {
       console.error(error);
-      setFormErrors([error]);
+      setFormErrors([error.message || "Something went wrong."]);
+      setSuccessMessage("");
     }
   };
 
@@ -114,6 +128,9 @@ const MealPlanner = () => {
         <button onClick={handleStartClick}>Create Meal Plan</button>
       </div>
       <div className="mealplanner-area">
+        {successMessage ? (
+          <Alert type="success" messages={[successMessage]} />
+        ) : null}
         <table>
           <thead>{mealTypes.showMealDays && <MealDays />}</thead>
           <tbody>
