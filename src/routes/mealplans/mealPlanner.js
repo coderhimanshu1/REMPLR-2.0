@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/mealplans/mealplanner.css";
 import MealDays from "./mealDays";
 import MealType from "./MealType";
 import Alert from "../common/alert";
 import RemplrApi from "../../helper/api";
 import MealPlannerSteps from "./mealPlannerSteps";
+import UserContext from "../common/userContext";
 
 const MealPlanner = () => {
   const [mealTypes, setMealTypes] = useState({
@@ -21,6 +23,15 @@ const MealPlanner = () => {
   });
   const [formErrors, setFormErrors] = useState([]);
   const [recipesForCells, setRecipesForCells] = useState({});
+
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+  }, [currentUser, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
