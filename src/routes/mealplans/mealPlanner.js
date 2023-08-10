@@ -69,12 +69,25 @@ const MealPlanner = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if there's at least one recipe
+    if (Object.keys(recipesForCells).length === 0) {
+      setFormErrors(["You must add at least one recipe to the meal plan."]);
+      return;
+    }
+
     const recipes = [];
     for (const [cellId, recipe] of Object.entries(recipesForCells)) {
       const [mealType, dayIndex] = cellId.split("-");
+
+      const meal = {
+        b: "Breakfast",
+        l: "Lunch",
+        d: "Dinner",
+        s: "Snack",
+      };
       recipes.push({
         recipe_id: recipe.id,
-        meal_type: mealType,
+        meal_type: meal[mealType],
         meal_day: Number(dayIndex) + 1,
       });
     }
@@ -86,9 +99,10 @@ const MealPlanner = () => {
 
     try {
       let result = await RemplrApi.createMealPlan(dataToSend);
-      console.log("result", result);
+      setFormErrors([]); // clear errors upon successful submission
     } catch (error) {
       console.error(error);
+      setFormErrors([error]);
     }
   };
 
@@ -182,9 +196,7 @@ const MealPlanner = () => {
                 onChange={handleChange}
                 required
               />
-              {formErrors.length ? (
-                <Alert type="error" messages={formErrors} />
-              ) : null}
+
               <input
                 type="username"
                 name="created_by"
@@ -192,7 +204,10 @@ const MealPlanner = () => {
                 onChange={handleChange}
                 required
               />
-              <button>Save</button>
+              {formErrors.length ? (
+                <Alert type="error" messages={formErrors} />
+              ) : null}
+              <button className="mealplanner-save-button">Save</button>
             </div>
           )}
         </form>

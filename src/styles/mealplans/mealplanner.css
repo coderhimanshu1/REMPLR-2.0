@@ -202,7 +202,7 @@ td {
   color: transparent;
 }
 
-.mealplanner-area form button {
+.mealplanner-save-button {
   background-color: #16703c;
   color: #f1f5f2;
   border: 2px solid #011627;
@@ -216,11 +216,11 @@ td {
   border-bottom-width: 5px;
 }
 
-.mealplanner-area form button:active {
+.mealplanner-save-button:active {
   font-size: 13px;
 }
 
-.mealplanner-area form button:hover {
+.mealplanner-save-button:hover {
   color: #2adf76;
   background-color: #011627;
   border: 2px solid #16703c;
