@@ -2,19 +2,19 @@
   text-align: center;
   transform: rotate(-90deg);
   background: none;
+  width: 10px;
 }
 
 .meal-cell {
   position: relative;
   border: 2px black solid;
   height: 100px;
-  width: 500px;
+  width: 100px;
 }
 
 .meal-cell .recipes-card {
-  width: 140px;
+  width: 160px;
   height: 150px;
-  padding: 20%;
   margin: 1px;
 }
 

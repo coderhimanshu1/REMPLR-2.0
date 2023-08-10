@@ -46,3 +46,25 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.recipes button {
+  background-color: #011627;
+  color: #2adf76;
+  border: 2px solid #2a6339;
+  border-bottom-width: 5px;
+  width: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.recipes button:active {
+  font-size: 13px;
+}
+
+.recipes button:hover {
+  color: #2adf76;
+  background-color: #011627;
+  border: 2px solid #2adf76;
+}

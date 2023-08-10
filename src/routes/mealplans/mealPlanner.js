@@ -163,7 +163,7 @@ const MealPlanner = () => {
         )}
         <form onSubmit={handleSubmit}>
           {mealTypes.showMealPlanName && (
-            <div className="mealplanner-name">
+            <div>
               <input
                 type="mealPlanName"
                 name="mealPlanName"

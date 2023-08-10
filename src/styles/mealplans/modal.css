@@ -20,3 +20,9 @@
   max-height: 80%;
   overflow-y: auto;
 }
+
+.modal-overlay .recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

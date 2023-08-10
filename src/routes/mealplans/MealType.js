@@ -35,13 +35,13 @@ const MealType = ({
 
   const prefix = typePrefixMap[type];
 
-  const removeRecipeFromCell = (cellId) => {
-    setRecipesForCells((prev) => {
-      const updatedRecipes = { ...prev };
-      delete updatedRecipes[cellId];
-      return updatedRecipes;
-    });
-  };
+  // const removeRecipeFromCell = (cellId) => {
+  //   setRecipesForCells((prev) => {
+  //     const updatedRecipes = { ...prev };
+  //     delete updatedRecipes[cellId];
+  //     return updatedRecipes;
+  //   });
+  // };
 
   return (
     <>
@@ -64,9 +64,9 @@ const MealType = ({
               {recipesForCells[cellId] && (
                 <div className="recipe-container">
                   <RecipeCard recipe={recipesForCells[cellId]} />
-                  <button onClick={() => removeRecipeFromCell(cellId)}>
+                  {/* <button onClick={() => removeRecipeFromCell(cellId)}>
                     <FontAwesomeIcon icon={faTimes} />
-                  </button>
+                  </button> */}
                 </div>
               )}
             </td>

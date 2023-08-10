@@ -13,31 +13,16 @@
   color: #f1f5f2;
 }
 
-.mealplanner-steps {
+.mealplanner-area {
   display: flex;
   flex-direction: column;
-  background-repeat: no-repeat;
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../../images/mealplanner.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #f1f5f2;
-  overflow: hidden;
-  margin: 5% 10%;
-  width: 80%;
-  padding: 2%;
-}
-
-.mealplanner-area {
+  align-items: center;
   padding: 0.5%;
+  padding-bottom: 40px;
   margin: 0.9%;
   background-color: #f1f5f2;
-}
-
-.mealplanner-area table {
-  width: 90%;
+  border-radius: 26px;
+  border: 2px solid #011627;
 }
 
 .mealplanner-area th,
@@ -50,7 +35,7 @@ td {
 .mealplanner-start {
   display: flex;
   justify-content: center;
-  padding: 5%;
+  padding: 1%;
 }
 
 .mealplanner-start button {
@@ -172,7 +157,6 @@ td {
     flex-direction: column;
     align-items: center;
     padding: 10px;
-
     width: 100%;
   }
 
@@ -180,9 +164,64 @@ td {
     margin: 190px;
   }
 
-  /* Adjust the table cells since they will be rotated too */
-
   .mealplanner-area td {
     transform: rotate(-90deg);
   }
+
+  .mealplanner-area form {
+    left: 7%;
+    right: 7%;
+    width: 80%;
+    padding: 10px;
+  }
+}
+
+.mealplanner-area form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mealplanner-area input[type="username"],
+.mealplanner-area input[type="mealPlanName"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 10px;
+  background-color: #fcfced;
+  border: none;
+  border-radius: 23px;
+}
+
+.mealplanner-area form input:focus {
+  border: 2px solid #16703c;
+  margin: 10px 20px;
+  outline: none;
+}
+
+.mealplanner-area form input[type="username"]:focus::placeholder,
+.mealplanner-area form input[type="mealPlanName"]:focus::placeholder {
+  color: transparent;
+}
+
+.mealplanner-area form button {
+  background-color: #16703c;
+  color: #f1f5f2;
+  border: 2px solid #011627;
+  border-bottom-width: 5px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-bottom-width: 5px;
+}
+
+.mealplanner-area form button:active {
+  font-size: 13px;
+}
+
+.mealplanner-area form button:hover {
+  color: #2adf76;
+  background-color: #011627;
+  border: 2px solid #16703c;
 }
