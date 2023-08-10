@@ -203,6 +203,17 @@ body {
   max-width: 100%;
 }
 
+.home-features-cards a {
+  margin: 3%;
+  text-decoration: none;
+  color: #d7dfda;
+  width: 100%;
+}
+
+.home-features-cards a h3 {
+  padding: 20%;
+}
+
 .home-features-card1 {
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

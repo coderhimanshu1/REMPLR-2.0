@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-
-import "../../styles/home.css";
 import UserContext from "../common/userContext";
+import "../../styles/home.css";
 
 import Header from "./header";
 import About from "./about";
@@ -31,7 +30,6 @@ const Home = () => {
           <Header />
           <Features />
           <CallToAction />
-
           <Reviews />
           <Contact />
         </>
