@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import UserContext from "../common/userContext";
 import "../../styles/home.css";
 
@@ -8,15 +8,9 @@ import CallToAction from "./callToAction";
 import Features from "./features";
 import Reviews from "./reviews";
 import Contact from "./contact";
-import LoadingScreen from "../common/loading";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
-  const [isLoading, setIsLoading] = useState(false);
-
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
 
   return (
     <div className="home">

@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 45%;
+  width: 30%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
@@ -46,8 +46,7 @@
   text-align: center;
   font-weight: 300;
   font-size: 90%;
-  padding: 20% 10%;
-  margin: 2%;
+  padding: 10% 5%;
 }
 
 .nav-links button {
@@ -75,4 +74,10 @@
   font-size: 200%;
   color: #f1f5f2;
   margin: 10px;
+}
+
+@media (max-width: 660px) {
+  .nav-item {
+    width: 60%;
+  }
 }

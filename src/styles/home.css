@@ -60,7 +60,12 @@ body {
 .home-about h1 {
   font-family: "JetBrains Mono", monospace;
   font-weight: 300;
-  font-size: 300%;
+  font-size: 400%;
+  padding-bottom: 5%;
+}
+
+.home-about p {
+  font-size: 120%;
 }
 
 .home-about-img {
