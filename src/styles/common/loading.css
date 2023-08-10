@@ -10,3 +10,9 @@
   align-items: center;
   z-index: 9999;
 }
+
+.loading img {
+  width: 110%;
+  margin: 0;
+  padding: 0;
+}
