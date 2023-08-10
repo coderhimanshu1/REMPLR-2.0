@@ -6,8 +6,9 @@ import Alert from "../common/alert";
 import IngredientCard from "./ingredientCard";
 import UserContext from "../common/userContext";
 import LoadingScreen from "../common/loading";
+import EmptySafe from "../common/emptySafe";
 
-const Ingredients = () => {
+const Ingredients = ({ userSaved = false }) => {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
@@ -20,11 +21,19 @@ const Ingredients = () => {
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await RemplrApi.getIngredients();
-        // Filtering only valid ingredients based on their name
-        const validIngredients = response.ingredients.filter((ingredient) =>
-          isValidName(ingredient.name)
-        );
+        let validIngredients;
+        if (userSaved) {
+          validIngredients = await RemplrApi.getUserSavedIngredients(
+            currentUser.username
+          );
+        } else {
+          const response = await RemplrApi.getIngredients();
+          // Filtering only valid ingredients based on their name
+          validIngredients = response.ingredients.filter((ingredient) =>
+            isValidName(ingredient.name)
+          );
+        }
+
         setIngredients(validIngredients);
       } catch (error) {
         console.error("Failed to fetch recipes", error);
@@ -54,6 +63,8 @@ const Ingredients = () => {
     <div className="ingredients">
       {isLoading ? (
         <LoadingScreen />
+      ) : ingredients.length === 0 && userSaved ? (
+        <EmptySafe message="No ingredient saved yet!" />
       ) : (
         <>
           <Alert
