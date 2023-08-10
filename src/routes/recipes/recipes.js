@@ -35,9 +35,7 @@ function Recipes({ handleAddRecipe, showAddButton }) {
   return (
     <div className="recipes">
       {loading ? (
-        <div>
-          <LoadingScreen />
-        </div>
+        <LoadingScreen />
       ) : (
         <>
           <Alert
@@ -46,16 +44,26 @@ function Recipes({ handleAddRecipe, showAddButton }) {
               "Click on Recipe card to view recipe's nutritional information.",
             ]}
           />
-          {recipes.map((recipe) => (
-            <div className="recipe-card">
-              <Link to={`/recipes/${recipe.id}`}>
-                <RecipeCard recipe={recipe} handleAddRecipe={handleAddRecipe} />
-              </Link>
-              {showAddButton && (
-                <button onClick={() => handleAddRecipe(recipe)}>Add</button>
-              )}
-            </div>
-          ))}
+          <div className="recipes">
+            {recipes.map((recipe) => (
+              <div className="recipe-card">
+                <Link to={`/recipes/${recipe.id}`}>
+                  <RecipeCard
+                    recipe={recipe}
+                    handleAddRecipe={handleAddRecipe}
+                  />
+                </Link>
+                {showAddButton && (
+                  <button
+                    className="recipe-button"
+                    onClick={() => handleAddRecipe(recipe)}
+                  >
+                    Add
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
         </>
       )}
     </div>

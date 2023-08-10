@@ -62,11 +62,13 @@ const Ingredients = () => {
               "Click on ingredient card to view ingredient's nutritional information.",
             ]}
           />
-          {ingredients.map((ingredient) => (
-            <Link to={`/ingredients/${ingredient.id}`}>
-              <IngredientCard ingredient={ingredient} />
-            </Link>
-          ))}
+          <div className="ingredients">
+            {ingredients.map((ingredient) => (
+              <Link to={`/ingredients/${ingredient.id}`}>
+                <IngredientCard ingredient={ingredient} />
+              </Link>
+            ))}
+          </div>
         </>
       )}
     </div>
