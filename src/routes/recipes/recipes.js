@@ -6,8 +6,9 @@ import RecipeCard from "./recipeCard";
 import Alert from "../common/alert";
 import UserContext from "../common/userContext";
 import LoadingScreen from "../common/loading";
+import EmptySafe from "../common/emptySafe";
 
-function Recipes({ handleAddRecipe, showAddButton }) {
+const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
@@ -20,8 +21,13 @@ function Recipes({ handleAddRecipe, showAddButton }) {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await RemplrApi.getRecipes();
-        setRecipes(response.recipes);
+        let response;
+        if (userSaved) {
+          response = await RemplrApi.getUserSavedRecipes(currentUser.username);
+        } else {
+          response = await RemplrApi.getRecipes();
+        }
+        setRecipes(response.recipes || []);
       } catch (error) {
         console.error("Failed to fetch recipes", error);
       } finally {
@@ -30,12 +36,14 @@ function Recipes({ handleAddRecipe, showAddButton }) {
     };
 
     fetchRecipes();
-  }, []);
+  }, [userSaved, currentUser]);
 
   return (
     <div className="recipes">
       {loading ? (
         <LoadingScreen />
+      ) : recipes.length === 0 && userSaved ? (
+        <EmptySafe message="No recipe saved yet!" />
       ) : (
         <>
           <Alert
@@ -68,6 +76,6 @@ function Recipes({ handleAddRecipe, showAddButton }) {
       )}
     </div>
   );
-}
+};
 
 export default Recipes;

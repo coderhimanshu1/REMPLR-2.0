@@ -14,7 +14,7 @@ import Ingredient from "./routes/ingredients/ingredient";
 import Recipes from "./routes/recipes/recipes";
 import Recipe from "./routes/recipes/recipe";
 import MealPlanner from "./routes/mealplans/mealPlanner";
-
+import UserSavedRecipes from "./routes/users/userSavedRecipes";
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./routes/users/profile";
@@ -115,6 +115,7 @@ const App = () => {
               <Route path="/recipes/:id" element={<Recipe />} />
               <Route path="/mealplanner" element={<MealPlanner />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/favorite-recipes" element={<UserSavedRecipes />} />
             </Routes>
           </UserContext.Provider>
         </Router>

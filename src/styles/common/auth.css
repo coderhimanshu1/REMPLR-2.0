@@ -64,7 +64,7 @@
   color: transparent;
 }
 
-.form-container button {
+.login-button {
   width: 100px;
   border-radius: 10px;
   margin: 2%;
@@ -77,11 +77,11 @@
   border-bottom-width: 5px;
 }
 
-.form-container button:active {
+.login-button:active {
   font-size: 13px;
 }
 
-.form-container button:hover {
+.login-button:hover {
   background-color: #011627;
   color: #2adf76;
   border: 2px solid #16703c;

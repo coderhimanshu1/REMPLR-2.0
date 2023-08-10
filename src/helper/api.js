@@ -16,7 +16,6 @@ class RemplrApi {
     //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${RemplrApi.token}` };
-    console.log("headers", headers);
     const params = method === "get" ? data : {};
 
     try {
@@ -298,7 +297,6 @@ class RemplrApi {
 
   /** Create a new meal plan */
   static async createMealPlan(data) {
-    console.log("data", data);
     return await this.request(`mealplans`, data, "post");
   }
 

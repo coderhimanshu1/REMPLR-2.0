@@ -10,19 +10,19 @@ const Features = () => {
         <>
           <h1> FAVORITES</h1>
           <div className="home-features-cards">
-            <Link to="/saved-ingredients">
+            <Link to="/favorite-ingredients">
               <div className="home-features-card1">
                 <h3> Ingredients</h3>
                 <small>Find your saved ingredients here...</small>
               </div>
             </Link>
-            <Link to="/path-for-logged-in-user1">
+            <Link to="/favorite-recipes">
               <div className="home-features-card1">
                 <h3> Recipes</h3>
                 <small>Find your saved recipes here...</small>
               </div>
             </Link>
-            <Link to="/path-for-logged-in-user1">
+            <Link to="/favorite-meal-plans">
               <div className="home-features-card1">
                 <h3> MealPlans</h3>
                 <small>Find your saved Meal plans here...</small>

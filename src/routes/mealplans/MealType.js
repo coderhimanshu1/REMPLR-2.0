@@ -35,13 +35,14 @@ const MealType = ({
 
   const prefix = typePrefixMap[type];
 
-  // const removeRecipeFromCell = (cellId) => {
-  //   setRecipesForCells((prev) => {
-  //     const updatedRecipes = { ...prev };
-  //     delete updatedRecipes[cellId];
-  //     return updatedRecipes;
-  //   });
-  // };
+  const handleAddRecipe = (recipe) => {
+    setRecipesForCells((prevRecipes) => ({
+      ...prevRecipes,
+      [clickedCell]: recipe,
+    }));
+    setSelectedRecipe(recipe);
+    setIsModalOpen(false);
+  };
 
   return (
     <>
@@ -64,9 +65,6 @@ const MealType = ({
               {recipesForCells[cellId] && (
                 <div className="recipe-container">
                   <RecipeCard recipe={recipesForCells[cellId]} />
-                  {/* <button onClick={() => removeRecipeFromCell(cellId)}>
-                    <FontAwesomeIcon icon={faTimes} />
-                  </button> */}
                 </div>
               )}
             </td>
@@ -90,17 +88,7 @@ const MealType = ({
           setClickedCell(null);
         }}
       >
-        <Recipes
-          showAddButton={true}
-          handleAddRecipe={(recipe) => {
-            setRecipesForCells((prevRecipes) => ({
-              ...prevRecipes,
-              [clickedCell]: recipe,
-            }));
-            setSelectedRecipe(recipe);
-            setIsModalOpen(false);
-          }}
-        />
+        <Recipes showAddButton={true} handleAddRecipe={handleAddRecipe} />
       </Modal>
     </>
   );
