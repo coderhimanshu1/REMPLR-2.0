@@ -30,3 +30,29 @@ svg {
   background-color: #d1dcd2;
   padding: 5px;
 }
+
+/* Default styles for the heart icon before it's saved */
+.save-heart {
+  color: #011627;
+  cursor: pointer;
+  font-size: 54px;
+  transition: color 0.3s ease;
+}
+
+/* Style when the heart icon is hovered */
+.save-heart:hover {
+  color: #ff6b6b; /* Light red color for hover effect */
+}
+
+/* Styles for the heart icon after it's saved */
+.saved-heart {
+  color: #ff6b6b; /* Red color to indicate it's saved */
+  cursor: pointer;
+  font-size: 54px;
+  transition: color 0.3s ease;
+}
+
+/* Optionally, you can also add a hover effect for the saved state */
+.saved-heart:hover {
+  color: #e63946; /* Slightly darker red on hover */
+}

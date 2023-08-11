@@ -13,7 +13,6 @@ const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
   const [loading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
-
   if (!currentUser) {
     navigate("/login");
   }
@@ -24,10 +23,11 @@ const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
         let response;
         if (userSaved) {
           response = await RemplrApi.getUserSavedRecipes(currentUser.username);
+          setRecipes(response || []);
         } else {
           response = await RemplrApi.getRecipes();
+          setRecipes(response.recipes || []);
         }
-        setRecipes(response.recipes || []);
       } catch (error) {
         console.error("Failed to fetch recipes", error);
       } finally {
@@ -52,6 +52,7 @@ const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
               "Click on Recipe card to view recipe's nutritional information.",
             ]}
           />
+
           <div className="recipes">
             {recipes.map((recipe) => (
               <div className="recipe-card">

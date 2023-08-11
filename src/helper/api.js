@@ -174,7 +174,7 @@ class RemplrApi {
    * Authorization required: admin or same-user-as-:username
    */
   static async getUserSavedIngredients(username) {
-    const result = await this.request(`${username}/ingredients`);
+    const result = await this.request(`users/${username}/ingredients`);
     return result.ingredients;
   }
 
@@ -188,7 +188,7 @@ class RemplrApi {
    * Authorization required: admin or same-user-as-:username
    */
   static async getUserSavedRecipes(username) {
-    const result = await this.request(`${username}/recipes`);
+    const result = await this.request(`users/${username}/recipes`);
     return result.recipes;
   }
 
@@ -202,7 +202,7 @@ class RemplrApi {
    * Authorization required: admin or same-user-as-:username
    */
   static async getUserSavedMealPlans(username) {
-    const result = await this.request(`${username}/mealplans`);
+    const result = await this.request(`users/${username}/mealplans`);
     return result.mealplans;
   }
 

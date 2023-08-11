@@ -12,7 +12,8 @@ import LoadingScreen from "../common/loading";
 const Recipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
-  const { isSaved, handleRecipeSave } = useSaveRecipe(id);
+  const { isSaved, handleRecipeSave, recipeNotFound } = useSaveRecipe(id);
+
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
