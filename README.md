@@ -1,8 +1,10 @@
 # Recipe and Meal Planner App
 
+![Remplr 2 0](https://github.com/coderhimanshu1/REMPLR-2.0/assets/87880250/cd43da5e-d6ab-444d-b26b-1b8242baeb85)
+
 ## Introduction
 
-Welcome to Remplr - a Meal Planner platform - designed to help nutritionist in assist their clients meeting nutritional goals, and planning meals effectively.
+Welcome to Remplr - a Meal Planner platform - designed to help nutritionists assist their clients in meeting nutritional goals, and planning meals effectively.
 
 ### Motivation
 
@@ -15,7 +17,7 @@ In a fast-paced world, ensuring balanced nutrition and managing meals across the
 3. **Save Recipes**: With a single click, users can save their favorite recipes.
 4. **Meal Planning**: Users can effectively plan their meals, ensuring balanced nutrition.
 5. **Ingredients List**: Each recipe provides a detailed list of ingredients required.
-6. **Nutritional Information**: Insight into the nutrition value of each recipe.
+6. **Nutritional Information**: Insight into the nutritional value of each recipe.
 
 ## Technical Stack
 
@@ -91,7 +93,7 @@ Please find the backend API documentation here: [Remplr-API](https://coderhimans
   - A separate relationship table was created to manage these connections efficiently.
   - Developed a method that lets nutritionists share meal plans. Once shared, clients can access these meal plans from the `shared_mealplans` table.
 
-	*NOTE: Though the second feature is not implented on frontend yet, I have successfully solved this challange at backend.* 
+	*NOTE: Though the second feature is not implemented on the front end yet, I have successfully solved this challenge at the backend.* 
 
 ## Demonstration
 
@@ -102,9 +104,9 @@ To be Posted!
 - Enhanced filtering for recipes based on dietary restrictions.
 - Show nutritionists ingredients/ recipes liked by their clients.
 
-***Features implented at backend, yet to be implented at Frontend:***
+***Features implemented at the backend, yet to be implemented at Frontend:***
 
-- Nutritionists can add their clients to system (they will be automatically connected).
+- Nutritionists can add their clients to the system (they will be automatically connected).
 - Share Meal Plans with the clients.
 
 
@@ -112,7 +114,7 @@ To be Posted!
 
 1. **React's Compositional Model**: React's approach to building UIs using a component-based architecture has made it clear that modularity and reusability are key. 
 
-2. **Effective State Management**: Throughout the development process, it became evident how crucial state management is. Properly handling state ensures data integrity, provides a better user experience, and reduces the chance of unexpected bugs. State needs to be predictable, and tools like  React's context can help achieve that.
+2. **Effective State Management**: Throughout the development process, it became evident how crucial state management is. Properly handling state ensures data integrity, provides a better user experience, and reduces the chance of unexpected bugs. 
 
 3. **Backend Design Architecture**: The importance of a well-structured backend cannot be overstated. A thoughtfully designed backend ensures scalable, maintainable, and efficient operations. It serves as the backbone of the application, handling everything from business logic to interactions with the database.
 
