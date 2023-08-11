@@ -42,7 +42,6 @@ class RemplrApi {
       { username, password },
       "post"
     );
-    console.log("result", result);
     this.token = result.token;
     return result.token;
   }
@@ -175,7 +174,7 @@ class RemplrApi {
    */
   static async getUserSavedIngredients(username) {
     const result = await this.request(`users/${username}/ingredients`);
-    return result.ingredients;
+    return result;
   }
 
   /*****************************

@@ -52,7 +52,8 @@ const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
               "Click on Recipe card to view recipe's nutritional information.",
             ]}
           />
-
+          {userSaved && <h1>Your favorite Recipes</h1>}
+          {!userSaved && <h1> Recipes you would enjoy!</h1>}
           <div className="recipes">
             {recipes.map((recipe) => (
               <div className="recipe-card">

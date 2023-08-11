@@ -26,15 +26,15 @@ const Ingredients = ({ userSaved = false }) => {
           validIngredients = await RemplrApi.getUserSavedIngredients(
             currentUser.username
           );
+          setIngredients(validIngredients);
         } else {
           const response = await RemplrApi.getIngredients();
           // Filtering only valid ingredients based on their name
           validIngredients = response.ingredients.filter((ingredient) =>
             isValidName(ingredient.name)
           );
+          setIngredients(validIngredients);
         }
-
-        setIngredients(validIngredients);
       } catch (error) {
         console.error("Failed to fetch recipes", error);
       } finally {
@@ -42,7 +42,7 @@ const Ingredients = ({ userSaved = false }) => {
       }
     };
     fetchIngredients();
-  }, []);
+  }, [userSaved, currentUser]);
 
   const isValidName = (name) => {
     // List of invalid patterns
@@ -73,6 +73,8 @@ const Ingredients = ({ userSaved = false }) => {
               "Click on ingredient card to view ingredient's nutritional information.",
             ]}
           />
+          {userSaved && <h1>Your favorite Ingredients</h1>}
+          {!userSaved && <h1> Ingredients you would love!</h1>}
           <div className="ingredients">
             {ingredients.map((ingredient) => (
               <Link to={`/ingredients/${ingredient.id}`}>

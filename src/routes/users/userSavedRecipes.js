@@ -4,7 +4,7 @@ import "../../styles/users/userSavedRecipes.css";
 const UserSavedRecipes = () => {
   return (
     <div className="userSavedRecipes">
-      <Recipes userSaved={true} />
+      <Recipes userSaved={true}></Recipes>
     </div>
   );
 };
