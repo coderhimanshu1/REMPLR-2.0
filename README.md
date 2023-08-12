@@ -44,7 +44,17 @@ In a fast-paced world, ensuring balanced nutrition and managing meals across the
 
 ### High-Level System Architecture
 
+#### REMPLR Design Architecture
 
+
+<img width="2164" alt="REMPLR Design Architecture" src="https://github.com/coderhimanshu1/Remplr-backend/assets/87880250/546d1ac0-64b6-4666-a31a-549bd5e88e49">
+
+
+
+#### REMPLR Database Schema
+
+
+![REMPLR](https://github.com/coderhimanshu1/Remplr-backend/assets/87880250/0f2b6f9e-41a9-41dd-ada2-465068d3ced0)
 
 ### React Component Structure
 
