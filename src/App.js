@@ -1,25 +1,11 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { decodeToken } from "react-jwt";
 import useLocalStorage from "./hooks/useLocalStorage";
 import "./styles/common/common.css";
-import UserContext from "./routes/common/userContext";
 import RemplrApi from "./helper/api";
-import Home from "./routes/homepage/home";
-import Nav from "./routes/common/nav";
-import LoginForm from "./routes/auth/login";
-import RegisterForm from "./routes/auth/register";
-import Ingredients from "./routes/ingredients/ingredients";
-import Ingredient from "./routes/ingredients/ingredient";
-import Recipes from "./routes/recipes/recipes";
-import Recipe from "./routes/recipes/recipe";
-import MealPlanner from "./routes/mealplans/mealPlanner";
-import UserSavedRecipes from "./routes/users/userSavedRecipes";
-import UserSavedIngredients from "./routes/users/userSavedIngredients";
-
-import "./styles/App.css";
+import RouteContainer from "./routeContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Profile from "./routes/users/profile";
+import "./styles/App.css";
 
 const App = () => {
   const [token, setToken] = useLocalStorage("token");
@@ -90,41 +76,14 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Router>
-          <UserContext.Provider
-            value={{
-              currentUser,
-              setCurrentUser,
-              setToken,
-              justLoggedIn,
-              setJustLoggedIn,
-            }}
-          >
-            <Nav />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route
-                path="/login"
-                element={<LoginForm login={handleLogin} />}
-              />
-              <Route
-                path="/get-started"
-                element={<RegisterForm register={register} />}
-              />
-              <Route path="/ingredients" element={<Ingredients />} />
-              <Route path="/ingredients/:id" element={<Ingredient />} />
-              <Route path="/recipes" element={<Recipes />} />
-              <Route path="/recipes/:id" element={<Recipe />} />
-              <Route path="/mealplanner" element={<MealPlanner />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route
-                path="/favorite-ingredients"
-                element={<UserSavedIngredients />}
-              />
-              <Route path="/favorite-recipes" element={<UserSavedRecipes />} />
-            </Routes>
-          </UserContext.Provider>
-        </Router>
+        <RouteContainer
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          setToken={setToken}
+          setJustLoggedIn={setJustLoggedIn}
+          handleLogin={handleLogin}
+          register={register}
+        />
       </header>
     </div>
   );
