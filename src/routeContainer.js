@@ -17,6 +17,7 @@ import Profile from "./routes/users/profile";
 const RouteContainer = ({
   currentUser,
   setCurrentUser,
+  token,
   setToken,
   justLoggedIn,
   setJustLoggedIn,
@@ -33,6 +34,7 @@ const RouteContainer = ({
             setToken,
             justLoggedIn,
             setJustLoggedIn,
+            token,
           }}
         >
           <Nav />

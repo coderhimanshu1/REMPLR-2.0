@@ -8,41 +8,38 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
 
 const App = () => {
-  const [token, setToken] = useLocalStorage("token");
+  const [storedToken, setStoredToken] = useLocalStorage("token");
   const [currentUser, setCurrentUser] = useState(null);
   const [justLoggedIn, setJustLoggedIn] = useState(false);
+
+  console.log("currenUser", currentUser);
 
   // Get user information once we have token from API
   useEffect(() => {
     const getUser = async () => {
-      if (token) {
+      if (storedToken) {
         try {
-          let { username } = decodeToken(token);
+          let { username } = decodeToken(storedToken);
 
           let currentUser = await RemplrApi.getUser(username);
 
-          // set the user data to local storage
-          window.localStorage.setItem(
-            "currentUser",
-            JSON.stringify(currentUser)
-          );
           setCurrentUser(currentUser);
+          setStoredToken(storedToken);
         } catch (err) {
           setCurrentUser(null);
         }
       }
-      setToken(token);
     };
     getUser();
-  }, [token]);
+  }, [storedToken]);
 
-  useEffect(() => {
-    // get user data from local storage
-    const storedUser = window.localStorage.getItem("currentUser");
-    if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
-    }
-  }, []);
+  // useEffect(() => {
+  //   // get user data from local storage
+  //   const storedUser = localStorage.getItem("currentUser");
+  //   if (storedUser) {
+  //     setCurrentUser(JSON.parse(storedUser));
+  //   }
+  // }, []);
 
   /*
   Handles user login
@@ -50,7 +47,8 @@ const App = () => {
   const handleLogin = async (loginData) => {
     try {
       let token = await RemplrApi.login(loginData.username, loginData.password);
-      setToken(token);
+      RemplrApi.setToken(token);
+      setStoredToken(token);
       return { success: true };
     } catch (errors) {
       console.error("login failed", errors);
@@ -65,7 +63,7 @@ const App = () => {
   const register = async (signupData) => {
     try {
       let token = await RemplrApi.signupUser(signupData);
-      setToken(token);
+      RemplrApi.setToken(token);
       return { success: true };
     } catch (errors) {
       console.error("Register failed", errors);
@@ -79,10 +77,11 @@ const App = () => {
         <RouteContainer
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
-          setToken={setToken}
+          setToken={setStoredToken}
           setJustLoggedIn={setJustLoggedIn}
           handleLogin={handleLogin}
           register={register}
+          token={storedToken}
         />
       </header>
     </div>

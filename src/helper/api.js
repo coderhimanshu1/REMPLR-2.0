@@ -7,7 +7,12 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class RemplrApi {
-  static token;
+  static token = localStorage.getItem("token") || null;
+
+  static setToken(newToken) {
+    this.token = newToken;
+    localStorage.setItem("token", newToken);
+  }
 
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);

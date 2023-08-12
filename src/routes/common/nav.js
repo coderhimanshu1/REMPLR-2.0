@@ -16,7 +16,8 @@ const Nav = () => {
     RemplrApi.token = null;
     setCurrentUser(null);
     setToken(null);
-    window.localStorage.removeItem("currentUser");
+    localStorage.removeItem("token");
+    localStorage.removeItem("currentUser");
     navigate("/");
   };
 
