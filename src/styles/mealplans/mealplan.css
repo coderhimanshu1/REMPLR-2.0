@@ -1,0 +1,17 @@
+.mealplan {
+  display: flex;
+  justify-content: center;
+  padding-top: 180px;
+  background-color: #16703c;
+}
+
+.mealplan-alert {
+  display: flex;
+  color: aliceblue;
+  font-size: 200%;
+  text-align: center;
+}
+
+.mealplan svg {
+  color: red;
+}

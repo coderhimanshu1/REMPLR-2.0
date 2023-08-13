@@ -13,6 +13,8 @@ import MealPlanner from "./routes/mealplans/mealPlanner";
 import UserSavedRecipes from "./routes/users/userSavedRecipes";
 import UserSavedIngredients from "./routes/users/userSavedIngredients";
 import Profile from "./routes/users/profile";
+import UserSavedMealPlans from "./routes/users/userSavedMealPlans";
+import MealPlan from "./routes/mealplans/mealPlan";
 
 const RouteContainer = ({
   currentUser,
@@ -66,6 +68,12 @@ const RouteContainer = ({
               path="/favorite-recipes"
               element={<UserSavedRecipes />}
             />
+            <Route
+              exact
+              path="/favorite-meal-plans"
+              element={<UserSavedMealPlans />}
+            />
+            <Route exact path="/mealplans/:id" element={<MealPlan />} />
           </Routes>
         </UserContext.Provider>
       </Router>

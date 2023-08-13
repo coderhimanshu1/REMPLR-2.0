@@ -1,10 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL =
-//   process.env.REACT_APP_BASE_URL || "https://remplr-backend.onrender.com";
-
-// TODO: Remove this after creating all components
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL =
+  process.env.REACT_APP_BASE_URL || "https://remplr-backend.onrender.com";
 
 class RemplrApi {
   static token = localStorage.getItem("token") || null;

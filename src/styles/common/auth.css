@@ -64,7 +64,8 @@
   color: transparent;
 }
 
-.login-button {
+.login-button,
+.register-button {
   width: 100px;
   border-radius: 10px;
   margin: 2%;
@@ -77,11 +78,13 @@
   border-bottom-width: 5px;
 }
 
-.login-button:active {
+.login-button:active,
+.register-button:active {
   font-size: 13px;
 }
 
-.login-button:hover {
+.login-button:hover,
+.register-button:hover {
   background-color: #011627;
   color: #2adf76;
   border: 2px solid #16703c;
