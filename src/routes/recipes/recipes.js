@@ -52,27 +52,32 @@ const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
               "Click on Recipe card to view recipe's nutritional information.",
             ]}
           />
-          {userSaved && <h1>Your favorite Recipes</h1>}
-          {!userSaved && <h1> Recipes you would enjoy!</h1>}
-          <div className="recipes">
-            {recipes.map((recipe) => (
-              <div className="recipe-card">
-                <Link to={`/recipes/${recipe.id}`}>
-                  <RecipeCard
-                    recipe={recipe}
-                    handleAddRecipe={handleAddRecipe}
-                  />
-                </Link>
-                {showAddButton && (
-                  <button
-                    className="recipe-button"
-                    onClick={() => handleAddRecipe(recipe)}
-                  >
-                    Add
-                  </button>
-                )}
-              </div>
-            ))}
+          <div>
+            {" "}
+            <div>
+              {userSaved && <h1>Your favorite Recipes</h1>}
+              {!userSaved && <h1> Recipes you would enjoy!</h1>}
+            </div>
+            <div className="recipes-container">
+              {recipes.map((recipe) => (
+                <div className="recipe-card">
+                  <Link to={`/recipes/${recipe.id}`}>
+                    <RecipeCard
+                      recipe={recipe}
+                      handleAddRecipe={handleAddRecipe}
+                    />
+                  </Link>
+                  {showAddButton && (
+                    <button
+                      className="recipe-button"
+                      onClick={() => handleAddRecipe(recipe)}
+                    >
+                      Add
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </>
       )}

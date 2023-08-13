@@ -73,14 +73,19 @@ const Ingredients = ({ userSaved = false }) => {
               "Click on ingredient card to view ingredient's nutritional information.",
             ]}
           />
-          {userSaved && <h1>Your favorite Ingredients</h1>}
-          {!userSaved && <h1> Ingredients you would love!</h1>}
-          <div className="ingredients">
-            {ingredients.map((ingredient) => (
-              <Link to={`/ingredients/${ingredient.id}`}>
-                <IngredientCard ingredient={ingredient} />
-              </Link>
-            ))}
+          <div>
+            <div>
+              {" "}
+              {userSaved && <h1>Your favorite Ingredients</h1>}
+              {!userSaved && <h1> Ingredients you would love!</h1>}
+            </div>
+            <div className="ingredients-container">
+              {ingredients.map((ingredient) => (
+                <Link to={`/ingredients/${ingredient.id}`}>
+                  <IngredientCard ingredient={ingredient} />
+                </Link>
+              ))}
+            </div>
           </div>
         </>
       )}

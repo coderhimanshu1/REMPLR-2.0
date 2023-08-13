@@ -13,9 +13,7 @@ const UserSavedIngredients = () => {
 
   return (
     <div className="userSavedIngredients">
-      <Ingredients userSaved={true}>
-        <h1>Your Saved Ingredients</h1>
-      </Ingredients>
+      <Ingredients userSaved={true} />
     </div>
   );
 };
