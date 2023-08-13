@@ -11,11 +11,10 @@ import EmptySafe from "../common/emptySafe";
 const Ingredients = ({ userSaved = false }) => {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { currentUser, token } = useContext(UserContext);
+  const { token, currentUser } = useContext(UserContext);
   const navigate = useNavigate();
-  console.log("currentUser in ingredients", currentUser);
 
-  if (!currentUser) {
+  if (!token) {
     navigate("/login");
   }
 

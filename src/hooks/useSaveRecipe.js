@@ -11,7 +11,7 @@ export const useSaveRecipe = (RecipeId) => {
     const checkIfSaved = async () => {
       try {
         // Check if the recipe exists
-        await RemplrApi.getRecipe(RecipeId); // Assuming this is the method to retrieve a single recipe by its ID
+        await RemplrApi.getRecipe(RecipeId);
 
         // Check if the recipe is saved
         const savedRecipes = await RemplrApi.getUserSavedRecipes(
@@ -27,7 +27,7 @@ export const useSaveRecipe = (RecipeId) => {
     };
 
     checkIfSaved();
-  }, [RecipeId, currentUser.username]);
+  }, [RecipeId]);
 
   const handleRecipeSave = async () => {
     if (!isSaved) {

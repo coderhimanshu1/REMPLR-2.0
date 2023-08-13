@@ -11,9 +11,9 @@ import EmptySafe from "../common/emptySafe";
 const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setIsLoading] = useState(true);
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, token } = useContext(UserContext);
   const navigate = useNavigate();
-  if (!currentUser) {
+  if (!token) {
     navigate("/login");
   }
 

@@ -12,7 +12,7 @@ import LoadingScreen from "../common/loading";
 const Recipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
-  const { isSaved, handleRecipeSave, recipeNotFound } = useSaveRecipe(id);
+  const { isSaved, handleRecipeSave } = useSaveRecipe(id);
 
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const Recipe = () => {
             Source: {recipe.creditstext}
           </a>
         </small>
-        <p className="recipe-">
+        <p>
           {recipe.vegetarian && <span title="Vegetarian">🌱 Vegetarian</span>}
           {recipe.vegan && <span title="Vegan">🥕 Vegan</span>}
           {recipe.dairyFree && <span title="Dairy-Free">🥛❌ Diary free</span>}

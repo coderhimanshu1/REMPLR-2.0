@@ -12,8 +12,6 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [justLoggedIn, setJustLoggedIn] = useState(false);
 
-  console.log("currenUser", currentUser);
-
   // Get user information once we have token from API
   useEffect(() => {
     const getUser = async () => {
