@@ -10,15 +10,12 @@ export const useSaveRecipe = (RecipeId) => {
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
-        // Check if the recipe exists
-        await RemplrApi.getRecipe(RecipeId);
-
-        // Check if the recipe is saved
-        const savedRecipes = await RemplrApi.getUserSavedRecipes(
-          currentUser.username
-        );
-        const found = savedRecipes.some((recipe) => recipe.id === RecipeId);
-        setIsSaved(found);
+        // // Check if the recipe is saved
+        // const savedRecipes = await RemplrApi.getUserSavedRecipes(
+        //   currentUser.username
+        // );
+        // const found = savedRecipes.some((recipe) => recipe.id === RecipeId);
+        // setIsSaved(found);
       } catch (error) {
         if (error.statusText === "Not Found") {
           setRecipeNotFound(true);

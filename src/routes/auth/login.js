@@ -65,7 +65,7 @@ const LoginForm = ({ login }) => {
         </button>
 
         <p>
-          Don't Have an Account? <Link to="/register">Register</Link>
+          Don't Have an Account? <Link to="/get-started">Register</Link>
         </p>
       </form>
     </div>
