@@ -37,36 +37,20 @@ const Nav = () => {
         <div className={menuOpen ? "nav-item active" : "nav-item"}>
           {currentUser ? (
             <div className="nav-links">
-              <Link exact to="/">
-                Home
-              </Link>
-              <Link exact to="/ingredients">
-                Ingredients
-              </Link>
-              <Link exact to="/recipes">
-                Recipes
-              </Link>
-              <Link exact to="/mealplanner">
-                MealPlanner
-              </Link>
-              <Link exact to="/profile">
-                My Profile
-              </Link>
+              <Link to="/">Home</Link>
+              <Link to="/ingredients">Ingredients</Link>
+              <Link to="/recipes">Recipes</Link>
+              <Link to="/mealplanner">MealPlanner</Link>
+              <Link to="/profile">My Profile</Link>
               <button className="nav-logout" onClick={logout}>
                 Log Out
               </button>
             </div>
           ) : (
             <div className="nav-links">
-              <Link exact to="/">
-                Home
-              </Link>
-              <Link exact to={`/login`}>
-                Login
-              </Link>
-              <Link exact to={`/get-started`}>
-                Sign Up
-              </Link>
+              <Link to="/">Home</Link>
+              <Link to={`/login`}>Login</Link>
+              <Link to={`/get-started`}>Sign Up</Link>
             </div>
           )}
         </div>

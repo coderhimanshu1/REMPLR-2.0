@@ -6,7 +6,7 @@ import "../../styles/users/profile.css";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser, token } = useContext(UserContext);
   const [formData, setFormData] = useState({
     firstName: currentUser?.firstName || "",
     lastName: currentUser?.lastName || "",
@@ -19,11 +19,10 @@ function Profile() {
   const navigate = useNavigate();
 
   // Redirect to login page if no user is logged in
-  useEffect(() => {
-    if (!currentUser) {
-      navigate("/login");
-    }
-  }, [currentUser, navigate]);
+
+  if (!token) {
+    navigate("/login");
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;

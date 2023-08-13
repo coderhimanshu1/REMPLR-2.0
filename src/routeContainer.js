@@ -39,23 +39,33 @@ const RouteContainer = ({
         >
           <Nav />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginForm login={handleLogin} />} />
+            <Route exact path="/" element={<Home />} />
             <Route
+              exact
+              path="/login"
+              element={<LoginForm login={handleLogin} />}
+            />
+            <Route
+              exact
               path="/get-started"
               element={<RegisterForm register={register} />}
             />
-            <Route path="/ingredients" element={<Ingredients />} />
-            <Route path="/ingredients/:id" element={<Ingredient />} />
-            <Route path="/recipes" element={<Recipes />} />
-            <Route path="/recipes/:id" element={<Recipe />} />
-            <Route path="/mealplanner" element={<MealPlanner />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route exact path="/ingredients" element={<Ingredients />} />
+            <Route exact path="/ingredients/:id" element={<Ingredient />} />
+            <Route exact path="/recipes" element={<Recipes />} />
+            <Route exact path="/recipes/:id" element={<Recipe />} />
+            <Route exact path="/mealplanner" element={<MealPlanner />} />
+            <Route exact path="/profile" element={<Profile />} />
             <Route
+              exact
               path="/favorite-ingredients"
               element={<UserSavedIngredients />}
             />
-            <Route path="/favorite-recipes" element={<UserSavedRecipes />} />
+            <Route
+              exact
+              path="/favorite-recipes"
+              element={<UserSavedRecipes />}
+            />
           </Routes>
         </UserContext.Provider>
       </Router>
