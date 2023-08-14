@@ -9,6 +9,8 @@ import MealPlannerSteps from "./mealPlannerSteps";
 import UserContext from "../common/userContext";
 
 const MealPlanner = () => {
+  const { currentUser, token } = useContext(UserContext);
+  const navigate = useNavigate();
   const [mealTypes, setMealTypes] = useState({
     showMealPlanName: false,
     showMealDays: false,
@@ -20,12 +22,11 @@ const MealPlanner = () => {
   const [formData, setFormData] = useState({
     created_by: "",
     mealPlanName: "",
+    user_id: currentUser?.id || null,
   });
   const [formErrors, setFormErrors] = useState([]);
   const [recipesForCells, setRecipesForCells] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
-  const { currentUser, token } = useContext(UserContext);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
@@ -68,9 +69,9 @@ const MealPlanner = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // check if correct username was entered
-    if (!formData.username) setFormErrors(["Please enter correct username."]);
+    if (formData.created_by !== currentUser.username)
+      setFormErrors(["Please enter correct username."]);
 
     // Check if there's at least one recipe
     if (Object.keys(recipesForCells).length === 0) {
@@ -118,7 +119,7 @@ const MealPlanner = () => {
       );
     } catch (error) {
       console.error(error);
-
+      setFormErrors(error);
       setSuccessMessage("");
     }
   };
@@ -225,15 +226,24 @@ const MealPlanner = () => {
                 required
               />
               <input
+                onChange={handleChange}
                 type="user_id"
-                name="User_id"
+                name="user_id"
                 value={currentUser.id}
                 hidden
               />
+              <input
+                type="hidden"
+                name="user_id"
+                value={currentUser?.id || ""}
+                readOnly
+              />
 
-              {formErrors.length ? (
-                <Alert type="error" messages={formErrors} />
-              ) : null}
+              {formErrors.length
+                ? formErrors.map((formError, idx) => (
+                    <Alert key={idx} type="error" messages={[formError]} />
+                  ))
+                : null}
               <button className="mealplanner-save-button">Save</button>
             </div>
           )}
