@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #16703c;
-  padding-top: 140px;
+  padding-top: 100px;
   height: 100%;
 }
 
@@ -29,8 +29,8 @@
 .meal-plan-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  text-align: center;
   overflow: hidden;
   color: #f1f5f2;
   padding: 10px;
@@ -39,6 +39,16 @@
   width: 200px;
   height: 200px;
   border: 2px solid #011627;
+  transition: all 0.4s ease;
+}
+
+.meal-plan-card:hover {
+  text-align: center;
+  color: #d9f9a5;
+  border: 3px solid #d9f9a5;
+  background-color: rgb(22, 112, 60, 0.7);
+  width: 250px;
+  height: 250px;
 }
 
 .meal-plan-card h3 {

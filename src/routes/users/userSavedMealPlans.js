@@ -5,6 +5,7 @@ import UserContext from "../common/userContext";
 import "../../styles/mealplans/userSavedMealPlans.css";
 import RemplrApi from "../../helper/api";
 import RandomBackground from "../common/randomBackground";
+import EmptySafe from "../common/emptySafe";
 
 function UserSavedMealPlans() {
   const [savedMealPlans, setSavedMealPlans] = useState([]);
@@ -30,24 +31,30 @@ function UserSavedMealPlans() {
 
   return (
     <div className="saved-meal-plans">
-      <Alert
-        type="success"
-        messages={["Click on Meal Plan card to see Meal Plan details."]}
-      />
-      <h1>Your Saved Meal Plans</h1>
+      {savedMealPlans.length === 0 ? (
+        <EmptySafe message="No Meal Plans saved yet!" />
+      ) : (
+        <div>
+          <Alert
+            type="success"
+            messages={["Click on Meal Plan card to see Meal Plan details."]}
+          />
+          <h1>Your Saved Meal Plans</h1>
 
-      <div className="saved-meal-plans-container">
-        {savedMealPlans.map((mealPlan) => (
-          <Link to={`/mealplans/${mealPlan.id}`}>
-            <RandomBackground>
-              <div key={mealPlan.id} className="meal-plan-card">
-                <h3>{mealPlan.name}</h3>
-                <small>Created by: {mealPlan.created_by}</small>{" "}
-              </div>
-            </RandomBackground>
-          </Link>
-        ))}
-      </div>
+          <div className="saved-meal-plans-container">
+            {savedMealPlans.map((mealPlan) => (
+              <Link to={`/mealplans/${mealPlan.id}`}>
+                <RandomBackground>
+                  <div key={mealPlan.id} className="meal-plan-card">
+                    <h3>{mealPlan.name}</h3>
+                    <small>Created by: {mealPlan.created_by}</small>{" "}
+                  </div>
+                </RandomBackground>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

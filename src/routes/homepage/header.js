@@ -9,7 +9,7 @@ const Header = () => {
   useEffect(() => {
     setTimeout(() => {
       setJustLoggedIn(false);
-    }, 2500);
+    }, 3500);
   }, [justLoggedIn, setJustLoggedIn]);
 
   return (
