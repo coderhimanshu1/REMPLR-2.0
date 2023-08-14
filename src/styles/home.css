@@ -376,7 +376,7 @@ h2 {
 
 @media (max-width: 780px) {
   .home-features {
-    height: 150vh;
+    height: 165vh;
   }
   .home-features-cards {
     display: flex;

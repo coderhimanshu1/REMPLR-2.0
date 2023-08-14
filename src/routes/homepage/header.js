@@ -3,7 +3,7 @@ import Alert from "../common/alert";
 import UserContext from "../common/userContext";
 
 const Header = () => {
-  const { currentUser, justLoggedIn, setJustLoggedIn } =
+  const { currentUser, justLoggedIn, setJustLoggedIn, logout } =
     useContext(UserContext);
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const Header = () => {
             messages={[`Welcome Back ${currentUser.username}!`]}
           />
         ) : null}
+        {logout ? <Alert type="success" messages={[`Goodbye!`]} /> : null}
       </div>
 
       <div className="home-text">

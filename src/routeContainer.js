@@ -26,6 +26,7 @@ const RouteContainer = ({
   handleLogin,
   register,
   handleLogout,
+  logout,
 }) => {
   return (
     <>
@@ -38,6 +39,7 @@ const RouteContainer = ({
           justLoggedIn,
           setJustLoggedIn,
           token,
+          logout,
         }}
       >
         <Router>

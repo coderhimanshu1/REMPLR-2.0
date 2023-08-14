@@ -11,6 +11,7 @@ const App = () => {
   const [storedToken, setStoredToken] = useLocalStorage("token");
   const [currentUser, setCurrentUser] = useState(null);
   const [justLoggedIn, setJustLoggedIn] = useState(false);
+  const [logout, setLogout] = useState(false);
 
   // Get user information once we have token from API
   useEffect(() => {
@@ -30,6 +31,13 @@ const App = () => {
     };
     getUser();
   }, [storedToken]);
+
+  // Show logout message for 2.5 seconds
+  useEffect(() => {
+    setTimeout(() => {
+      setLogout(false);
+    }, 2500);
+  }, [logout]);
 
   /*
   Handles user login
@@ -70,6 +78,7 @@ const App = () => {
       setCurrentUser(null);
       RemplrApi.setToken(null);
       setStoredToken(null);
+      setLogout(true);
       localStorage.removeItem("token");
       localStorage.removeItem("currentUser");
       return { success: true };
@@ -92,6 +101,7 @@ const App = () => {
           register={register}
           handleLogout={handleLogout}
           token={storedToken}
+          logout={logout}
         />
       </header>
     </div>
