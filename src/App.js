@@ -31,14 +31,6 @@ const App = () => {
     getUser();
   }, [storedToken]);
 
-  // useEffect(() => {
-  //   // get user data from local storage
-  //   const storedUser = localStorage.getItem("currentUser");
-  //   if (storedUser) {
-  //     setCurrentUser(JSON.parse(storedUser));
-  //   }
-  // }, []);
-
   /*
   Handles user login
   */
@@ -69,6 +61,24 @@ const App = () => {
     }
   };
 
+  /*
+  Handles user logout
+  */
+  const handleLogout = async () => {
+    try {
+      RemplrApi.token = null;
+      setCurrentUser(null);
+      RemplrApi.setToken(null);
+      setStoredToken(null);
+      localStorage.removeItem("token");
+      localStorage.removeItem("currentUser");
+      return { success: true };
+    } catch (errors) {
+      console.error("login failed", errors);
+      return { success: false, errors };
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -76,9 +86,11 @@ const App = () => {
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
           setToken={setStoredToken}
+          justLoggedIn={justLoggedIn}
           setJustLoggedIn={setJustLoggedIn}
           handleLogin={handleLogin}
           register={register}
+          handleLogout={handleLogout}
           token={storedToken}
         />
       </header>

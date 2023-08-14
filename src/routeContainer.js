@@ -25,21 +25,23 @@ const RouteContainer = ({
   setJustLoggedIn,
   handleLogin,
   register,
+  handleLogout,
 }) => {
   return (
     <>
-      <Router>
-        <UserContext.Provider
-          value={{
-            currentUser,
-            setCurrentUser,
-            setToken,
-            justLoggedIn,
-            setJustLoggedIn,
-            token,
-          }}
-        >
-          <Nav />
+      {" "}
+      <UserContext.Provider
+        value={{
+          currentUser,
+          setCurrentUser,
+          setToken,
+          justLoggedIn,
+          setJustLoggedIn,
+          token,
+        }}
+      >
+        <Router>
+          <Nav handleLogout={handleLogout} />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route
@@ -75,8 +77,8 @@ const RouteContainer = ({
             />
             <Route exact path="/mealplans/:id" element={<MealPlan />} />
           </Routes>
-        </UserContext.Provider>
-      </Router>
+        </Router>
+      </UserContext.Provider>
     </>
   );
 };

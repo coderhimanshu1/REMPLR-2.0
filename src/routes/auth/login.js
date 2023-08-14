@@ -14,8 +14,7 @@ const LoginForm = ({ login }) => {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  const { currentUser, justLoggedIn, setJustLoggedIn } =
-    useContext(UserContext);
+  const { setJustLoggedIn } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

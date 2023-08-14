@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../styles/mealplans/mealType.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import Modal from "./modal";
+import Modal from "../common/modal";
 import Recipes from "../recipes/recipes";
 import RecipeCard from "../recipes/recipeCard";
 

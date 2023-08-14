@@ -7,22 +7,23 @@ const Header = () => {
     useContext(UserContext);
 
   useEffect(() => {
-    if (justLoggedIn) {
-      setTimeout(() => {
-        setJustLoggedIn(false);
-      }, 2500);
-    }
+    setTimeout(() => {
+      setJustLoggedIn(false);
+    }, 2500);
   }, [justLoggedIn, setJustLoggedIn]);
 
   return (
     <div className="home-header">
-      <div className="home-header-top"></div>
-      {currentUser && justLoggedIn ? (
-        <Alert
-          type="success"
-          messages={[`Welcome Back ${currentUser.username}!`]}
-        />
-      ) : null}
+      <div className="home-header-top">
+        {" "}
+        {currentUser && justLoggedIn ? (
+          <Alert
+            type="success"
+            messages={[`Welcome Back ${currentUser.username}!`]}
+          />
+        ) : null}
+      </div>
+
       <div className="home-text">
         <h1>REMPLR</h1>
         <small>Meal Plans Made Simple.</small>

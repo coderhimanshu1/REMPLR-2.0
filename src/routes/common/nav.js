@@ -4,21 +4,18 @@ import "../../styles/common/nav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import UserContext from "./userContext";
-import RemplrApi from "../../helper/api";
 import Brand from "./brand";
 
-const Nav = () => {
-  const { currentUser, setCurrentUser, setToken } = useContext(UserContext);
+const Nav = ({ handleLogout }) => {
+  const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const logout = () => {
-    RemplrApi.token = null;
-    setCurrentUser(null);
-    setToken(null);
-    localStorage.removeItem("token");
-    localStorage.removeItem("currentUser");
-    navigate("/");
+    let result = handleLogout();
+    if (result.success) {
+      navigate("/");
+    }
   };
 
   return (
