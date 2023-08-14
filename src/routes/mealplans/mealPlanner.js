@@ -24,11 +24,11 @@ const MealPlanner = () => {
   const [formErrors, setFormErrors] = useState([]);
   const [recipesForCells, setRecipesForCells] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, token } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!currentUser) {
+    if (!token) {
       navigate("/login");
     }
   }, [currentUser, navigate]);
@@ -68,6 +68,10 @@ const MealPlanner = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // check if correct username was entered
+    if (formData.username !== currentUser.username)
+      setFormErrors(["Please enter correct username."]);
 
     // Check if there's at least one recipe
     if (Object.keys(recipesForCells).length === 0) {
@@ -115,7 +119,7 @@ const MealPlanner = () => {
       );
     } catch (error) {
       console.error(error);
-      setFormErrors([error.message || "Something went wrong."]);
+
       setSuccessMessage("");
     }
   };
