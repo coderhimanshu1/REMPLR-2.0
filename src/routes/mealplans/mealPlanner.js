@@ -225,6 +225,13 @@ const MealPlanner = () => {
                 onChange={handleChange}
                 required
               />
+              <input
+                type="user_id"
+                name="User_id"
+                value={currentUser.id}
+                hidden
+              />
+
               {formErrors.length ? (
                 <Alert type="error" messages={formErrors} />
               ) : null}

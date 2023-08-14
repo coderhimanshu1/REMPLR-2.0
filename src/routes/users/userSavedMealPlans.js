@@ -39,7 +39,7 @@ function UserSavedMealPlans() {
           <Link to={`/mealplans/${mealPlan.id}`}>
             <div key={mealPlan.id} className="meal-plan-card">
               <h3>{mealPlan.name}</h3>
-              <small>Created by: {currentUser.username}</small>
+              <small>Created by: {mealPlan.created_by}</small>
             </div>
           </Link>
         ))}
