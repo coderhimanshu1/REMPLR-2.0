@@ -8,7 +8,7 @@ import UserContext from "../common/userContext";
 import LoadingScreen from "../common/loading";
 import EmptySafe from "../common/emptySafe";
 
-const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
+const Recipes = ({ handleAddRecipe, mealPlanner, userSaved = false }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setIsLoading] = useState(true);
   const { currentUser, token } = useContext(UserContext);
@@ -61,13 +61,20 @@ const Recipes = ({ handleAddRecipe, showAddButton, userSaved = false }) => {
             <div className="recipes-container">
               {recipes.map((recipe) => (
                 <div className="recipe-card">
-                  <Link to={`/recipes/${recipe.id}`}>
+                  {mealPlanner ? (
                     <RecipeCard
                       recipe={recipe}
                       handleAddRecipe={handleAddRecipe}
                     />
-                  </Link>
-                  {showAddButton && (
+                  ) : (
+                    <Link to={`/recipes/${recipe.id}`}>
+                      <RecipeCard
+                        recipe={recipe}
+                        handleAddRecipe={handleAddRecipe}
+                      />
+                    </Link>
+                  )}
+                  {mealPlanner && (
                     <button
                       className="recipe-button"
                       onClick={() => handleAddRecipe(recipe)}

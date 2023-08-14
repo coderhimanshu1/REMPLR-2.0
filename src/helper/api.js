@@ -207,6 +207,14 @@ class RemplrApi {
     return result.mealplans;
   }
 
+  /** Get a single mealPlan by ID
+   * Authorization required: admin or nutritionist user
+   */
+  static async getMealPlan(id) {
+    console.log("id in api", id);
+    return await this.request(`mealplans/${id}`);
+  }
+
   /*****************************
    * Methods for Ingredients
    ******************************/
@@ -223,7 +231,7 @@ class RemplrApi {
    * Authorization required: admin or logged-in user
    */
   static async getIngredients(query = {}) {
-    return await this.request(`ingredients`, query, "get");
+    return await this.request(`ingredients`, query);
   }
 
   /** Get a single ingredient by ID
@@ -265,7 +273,7 @@ class RemplrApi {
    * Authorization required: admin or logged-in user
    */
   static async getRecipes(query = {}) {
-    return await this.request(`recipes`, query, "get");
+    return await this.request(`recipes`, query);
   }
 
   /** Get a single recipe by ID, including ingredients and nutrients

@@ -11,6 +11,7 @@ const MealType = ({
   handleDeleteClick,
   setRecipesForCells,
   recipesForCells,
+  mealPlan = false,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -88,7 +89,7 @@ const MealType = ({
           setClickedCell(null);
         }}
       >
-        <Recipes showAddButton={true} handleAddRecipe={handleAddRecipe} />
+        <Recipes mealPlanner={true} handleAddRecipe={handleAddRecipe} />
       </Modal>
     </>
   );

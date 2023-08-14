@@ -15,7 +15,7 @@ function UserSavedMealPlans() {
   if (!token) {
     navigate("/login");
   }
-  console.log(savedMealPlans);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

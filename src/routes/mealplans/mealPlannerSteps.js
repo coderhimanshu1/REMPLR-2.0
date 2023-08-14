@@ -18,11 +18,8 @@ const MealPlannerSteps = () => {
         Add button below the recipe to select that recipe
       </p>
       <p>
-        Step 5:Want to change the recipe? Hover to see the remove button and add
-        the new recipe by following Step 3 and 4.
-        <small>
-          <i> NOTE: You may two recipes for a meal of the day.</i>
-        </small>{" "}
+        Step 5:Want to change the recipe? Click on the cell again and select the
+        new recipe to replace the recipe.
       </p>
       <p>
         Step 6: Once you are done satisfied with the meal plan. Click Save to

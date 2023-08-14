@@ -70,8 +70,7 @@ const MealPlanner = () => {
     e.preventDefault();
 
     // check if correct username was entered
-    if (formData.username !== currentUser.username)
-      setFormErrors(["Please enter correct username."]);
+    if (!formData.username) setFormErrors(["Please enter correct username."]);
 
     // Check if there's at least one recipe
     if (Object.keys(recipesForCells).length === 0) {
