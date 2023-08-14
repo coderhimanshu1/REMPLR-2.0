@@ -4,6 +4,7 @@ import Alert from "../common/alert";
 import UserContext from "../common/userContext";
 import "../../styles/mealplans/userSavedMealPlans.css";
 import RemplrApi from "../../helper/api";
+import RandomBackground from "../common/randomBackground";
 
 function UserSavedMealPlans() {
   const [savedMealPlans, setSavedMealPlans] = useState([]);
@@ -34,13 +35,16 @@ function UserSavedMealPlans() {
         messages={["Click on Meal Plan card to see Meal Plan details."]}
       />
       <h1>Your Saved Meal Plans</h1>
+
       <div className="saved-meal-plans-container">
         {savedMealPlans.map((mealPlan) => (
           <Link to={`/mealplans/${mealPlan.id}`}>
-            <div key={mealPlan.id} className="meal-plan-card">
-              <h3>{mealPlan.name}</h3>
-              <small>Created by: {mealPlan.created_by}</small>
-            </div>
+            <RandomBackground>
+              <div key={mealPlan.id} className="meal-plan-card">
+                <h3>{mealPlan.name}</h3>
+                <small>Created by: {mealPlan.created_by}</small>{" "}
+              </div>
+            </RandomBackground>
           </Link>
         ))}
       </div>
