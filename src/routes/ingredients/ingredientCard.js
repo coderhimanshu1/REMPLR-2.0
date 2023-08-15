@@ -2,8 +2,9 @@ import ingredientImg from "../../images/ingredient.webp";
 import { useSaveIngredient } from "../../hooks/useSaveIngredient";
 import SaveHeartButton from "../common/saveHeartButton";
 
-const IngredientCard = ({ ingredient }) => {
-  const { isSaved, handleIngredientSave } = useSaveIngredient(ingredient.id);
+const IngredientCard = ({ ingredient, userSaved }) => {
+  const { isSaved, handleIngredientSave } = useSaveIngredient(ingredient);
+
   return (
     <div className="ingredients-card" key={ingredient.id}>
       <img
@@ -16,7 +17,7 @@ const IngredientCard = ({ ingredient }) => {
         alt={ingredient.name}
       />
       {/* Star icon to save ingredient */}
-      {isSaved && (
+      {userSaved && isSaved && (
         <SaveHeartButton isSaved={isSaved} handleSave={handleIngredientSave} />
       )}
 

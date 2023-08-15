@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-class-members */
 import axios from "axios";
 
 const BASE_URL =

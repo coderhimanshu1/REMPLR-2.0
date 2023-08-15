@@ -82,7 +82,10 @@ const Ingredients = ({ userSaved = false }) => {
             <div className="ingredients-container">
               {ingredients.map((ingredient) => (
                 <Link to={`/ingredients/${ingredient.id}`}>
-                  <IngredientCard ingredient={ingredient} />
+                  <IngredientCard
+                    ingredient={ingredient}
+                    userSaved={userSaved}
+                  />
                 </Link>
               ))}
             </div>

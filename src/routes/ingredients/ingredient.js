@@ -12,7 +12,7 @@ import LoadingScreen from "../common/loading";
 const Ingredient = () => {
   const { id } = useParams();
   const [ingredient, setIngredient] = useState(null);
-  const { isSaved, handleIngredientSave } = useSaveIngredient(id);
+  const { isSaved, handleIngredientSave } = useSaveIngredient(ingredient);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
