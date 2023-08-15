@@ -6,6 +6,7 @@ export const useSaveRecipe = (recipe) => {
   const [isSaved, setIsSaved] = useState(false);
   const [recipeNotFound, setRecipeNotFound] = useState(false);
   const { currentUser } = useContext(UserContext);
+  const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
     const checkIfSaved = async () => {
@@ -32,9 +33,10 @@ export const useSaveRecipe = (recipe) => {
   const handleRecipeSave = async () => {
     if (!isSaved) {
       await RemplrApi.saveRecipe(currentUser.username, recipe.id);
+      setAlertMessage(`Liked recipe ${recipe.title}!`);
       setIsSaved(true);
     }
   };
 
-  return { isSaved, handleRecipeSave, recipeNotFound }; // Returning the new state
+  return { isSaved, handleRecipeSave, recipeNotFound, alertMessage }; // Returning the new state
 };

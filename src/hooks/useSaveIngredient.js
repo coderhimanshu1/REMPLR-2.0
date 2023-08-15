@@ -6,12 +6,12 @@ export const useSaveIngredient = (ingredient) => {
   const [isSaved, setIsSaved] = useState(false);
   const [ingredientNotFound, setIngredientNotFound] = useState(false);
   const { currentUser } = useContext(UserContext);
-  console.log(isSaved);
+  const [alertMessage, setAlertMessage] = useState("");
 
-  console.log(ingredient);
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
+        console.log(ingredient);
         // Check if the ingredient is saved
         const savedIngredients = await RemplrApi.getUserSavedIngredients(
           currentUser.username
@@ -38,11 +38,13 @@ export const useSaveIngredient = (ingredient) => {
       if (!isSaved) {
         await RemplrApi.saveIngredient(currentUser.username, ingredient.id);
         setIsSaved(true);
+        setAlertMessage(`Liked ingredient ${ingredient.name}!`);
       }
     } catch (err) {
       console.error(err);
+      setAlertMessage("Failed to like the ingredient.");
     }
   };
 
-  return { isSaved, handleIngredientSave, ingredientNotFound }; // Returning the new state
+  return { isSaved, handleIngredientSave, ingredientNotFound, alertMessage };
 };
