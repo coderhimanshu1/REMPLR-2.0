@@ -13,8 +13,12 @@ import Alert from "../common/alert";
 const Ingredient = () => {
   const { id } = useParams();
   const [ingredient, setIngredient] = useState(null);
-  const { isSaved, handleIngredientSave, alertMessage } =
-    useSaveIngredient(ingredient);
+  const {
+    isSaved,
+    handleIngredientSave,
+    alertMessage,
+    handleIngredientDelete,
+  } = useSaveIngredient(ingredient);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -62,6 +66,7 @@ const Ingredient = () => {
             <SaveHeartButton
               isSaved={isSaved}
               handleSave={handleIngredientSave}
+              handleDelete={handleIngredientDelete}
             />
 
             <p>

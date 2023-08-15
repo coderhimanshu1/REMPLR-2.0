@@ -11,7 +11,6 @@ export const useSaveIngredient = (ingredient) => {
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
-        console.log(ingredient);
         // Check if the ingredient is saved
         const savedIngredients = await RemplrApi.getUserSavedIngredients(
           currentUser.username
@@ -46,5 +45,25 @@ export const useSaveIngredient = (ingredient) => {
     }
   };
 
-  return { isSaved, handleIngredientSave, ingredientNotFound, alertMessage };
+  const handleIngredientDelete = async () => {
+    try {
+      await RemplrApi.deleteSavedIngredient(
+        currentUser.username,
+        ingredient.id
+      );
+      setIsSaved(false);
+      setAlertMessage(`Unliked ingredient ${ingredient.name}!`);
+    } catch (err) {
+      console.error(err);
+      setAlertMessage("Failed to unlike the ingredient.");
+    }
+  };
+
+  return {
+    isSaved,
+    handleIngredientSave,
+    handleIngredientDelete,
+    ingredientNotFound,
+    alertMessage,
+  };
 };

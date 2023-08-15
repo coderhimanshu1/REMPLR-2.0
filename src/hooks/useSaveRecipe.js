@@ -38,5 +38,22 @@ export const useSaveRecipe = (recipe) => {
     }
   };
 
-  return { isSaved, handleRecipeSave, recipeNotFound, alertMessage }; // Returning the new state
+  const handleRecipeDelete = async () => {
+    try {
+      await RemplrApi.deleteSavedRecipe(currentUser.username, recipe.id);
+      setIsSaved(false);
+      setAlertMessage(`Unliked recipe ${recipe.title}!`);
+    } catch (err) {
+      console.error(err);
+      setAlertMessage("Failed to unlike the recipe.");
+    }
+  };
+
+  return {
+    isSaved,
+    handleRecipeSave,
+    handleRecipeDelete,
+    recipeNotFound,
+    alertMessage,
+  }; // Returning the new state
 };

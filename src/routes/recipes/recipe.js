@@ -15,7 +15,8 @@ const Recipe = ({ recipeId, mealPlanRecipe }) => {
   const [isLoading, setIsLoading] = useState(true);
   const id = recipeId || params.id;
   const [recipe, setRecipe] = useState(null);
-  const { isSaved, handleRecipeSave, alertMessage } = useSaveRecipe(recipe);
+  const { isSaved, handleRecipeSave, handleRecipeDelete, alertMessage } =
+    useSaveRecipe(recipe);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -55,6 +56,7 @@ const Recipe = ({ recipeId, mealPlanRecipe }) => {
                   <SaveHeartButton
                     isSaved={isSaved}
                     handleSave={handleRecipeSave}
+                    handleDelete={handleRecipeDelete}
                   />
                 )}
 
