@@ -4,20 +4,20 @@ import RemplrApi from "../../helper/api";
 import UserContext from "../common/userContext";
 import LoadingScreen from "../common/loading";
 import MealDays from "./mealDays";
-import RenderMealTypeRecipes from "./renderMealTypeRecipes";
 import MealRow from "./mealRow";
+
+import "../../styles/mealplans/mealplan.css";
 
 const MealPlan = () => {
   const [mealPlan, setMealPlan] = useState(null);
   const { id } = useParams();
-  const { currentUser, token } = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const navigate = useNavigate();
 
   if (!token) {
     navigate("/login");
   }
 
-  console.log("mealplan", mealPlan);
   useEffect(() => {
     const fetchMealPlan = async () => {
       try {
@@ -59,10 +59,10 @@ const MealPlan = () => {
   const transformedData = transformData(mealPlan.recipes);
 
   return (
-    <div>
+    <div className="mealplan">
       <h1>{mealPlan.name}</h1>
       <small>Created by: {mealPlan.created_by}</small>
-      <div>
+      <div className="mealplan-table">
         <table>
           <thead>
             <MealDays />
