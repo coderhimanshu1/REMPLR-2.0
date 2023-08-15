@@ -48,11 +48,18 @@ svg {
 .saved-heart {
   color: #ff6b6b; /* Red color to indicate it's saved */
   cursor: pointer;
-  font-size: 54px;
+  font-size: 74px;
   transition: color 0.3s ease;
 }
 
 /* Optionally, you can also add a hover effect for the saved state */
 .saved-heart:hover {
   color: #e63946; /* Slightly darker red on hover */
+}
+
+.userSavedIngredients .saved-heart {
+  font-size: 44px;
+}
+.userSavedRecipes .saved-heart {
+  font-size: 44px;
 }
