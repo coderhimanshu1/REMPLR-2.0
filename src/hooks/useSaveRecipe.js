@@ -31,7 +31,7 @@ export const useSaveRecipe = (recipe) => {
 
   const handleRecipeSave = async () => {
     if (!isSaved) {
-      await RemplrApi.saveRecipe(currentUser.username, recipe);
+      await RemplrApi.saveRecipe(currentUser.username, recipe.id);
       setIsSaved(true);
     }
   };

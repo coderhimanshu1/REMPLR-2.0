@@ -72,6 +72,7 @@ const Recipes = ({ handleAddRecipe, mealPlanner, userSaved = false }) => {
                       <RecipeCard
                         recipe={recipe}
                         handleAddRecipe={handleAddRecipe}
+                        userSaved={userSaved}
                       />
                     </Link>
                   )}

@@ -2,7 +2,7 @@ import "../../styles/recipes/recipes.css";
 import { useSaveRecipe } from "../../hooks/useSaveRecipe";
 import SaveHeartButton from "../common/saveHeartButton";
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, userSaved }) => {
   const { isSaved, handleRecipeSave } = useSaveRecipe(recipe);
 
   return (
@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe }) => {
           {recipe.dairyFree && <span title="Dairy-Free">🥛❌</span>}
         </span>
         {/* Star icon to save ingredient */}
-        {isSaved && (
+        {userSaved && isSaved && (
           <SaveHeartButton isSaved={isSaved} handleSave={handleRecipeSave} />
         )}
       </div>
