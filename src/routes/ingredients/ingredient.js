@@ -46,7 +46,7 @@ const Ingredient = () => {
           <img
             src={
               ingredient.image
-                ? "https://spoonacular.com/cdn/ingredients_250x250/" +
+                ? "https://spoonacular.com/cdn/ingredients_100x100/" +
                   ingredient.image
                 : ingredientImg
             }

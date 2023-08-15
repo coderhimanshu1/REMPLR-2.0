@@ -6,7 +6,9 @@ export const useSaveIngredient = (ingredient) => {
   const [isSaved, setIsSaved] = useState(false);
   const [ingredientNotFound, setIngredientNotFound] = useState(false);
   const { currentUser } = useContext(UserContext);
+  console.log(isSaved);
 
+  console.log(ingredient);
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
@@ -16,8 +18,10 @@ export const useSaveIngredient = (ingredient) => {
         );
 
         const found = savedIngredients.some(
-          (savedIngredient) => savedIngredient.id === ingredient.id
+          (savedIngredient) =>
+            String(savedIngredient.id) === String(ingredient.id)
         );
+
         setIsSaved(found);
       } catch (error) {
         if (error.statusText === "Not Found") {

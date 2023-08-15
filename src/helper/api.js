@@ -149,6 +149,7 @@ class RemplrApi {
    */
   static async getUserSavedIngredients(username) {
     const result = await this.request(`users/${username}/ingredients`);
+    console.log("result in api", result);
     return result;
   }
 
