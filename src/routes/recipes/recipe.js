@@ -9,8 +9,9 @@ import Nutrition from "../common/nutrition";
 import UserContext from "../common/userContext";
 import LoadingScreen from "../common/loading";
 
-const Recipe = () => {
-  const { id } = useParams();
+const Recipe = ({ recipeId, mealPlanRecipe }) => {
+  const params = useParams();
+  const id = recipeId || params.id;
   const [recipe, setRecipe] = useState(null);
   const { isSaved, handleRecipeSave } = useSaveRecipe(id);
 
@@ -47,7 +48,9 @@ const Recipe = () => {
         <img src={recipe.image} alt={recipe.title} />
         <small className="recipe-caption">
           {/* Star icon to save Recipe */}
-          <SaveHeartButton isSaved={isSaved} handleSave={handleRecipeSave} />
+          {!mealPlanRecipe && (
+            <SaveHeartButton isSaved={isSaved} handleSave={handleRecipeSave} />
+          )}
 
           <a href={recipe.sourceurl} target="_blank" rel="noreferrer">
             Source: {recipe.creditstext}
@@ -63,13 +66,18 @@ const Recipe = () => {
         <p>Diets: {recipe.diets}</p>
       </div>
       <div className="recipe-details">
-        <Nutrition mapper={recipe.nutrients} item={recipe.nutrients.nutrient} />
+        {!mealPlanRecipe && (
+          <Nutrition
+            mapper={recipe.nutrients}
+            item={recipe.nutrients.nutrient}
+          />
+        )}
         <div className="recipe-prep">
           <h2>Ingredients</h2>
           <ul>
             {recipe.ingredients &&
               recipe.ingredients.map((Recipe) => (
-                <li key={Recipe.id}>
+                <li>
                   {Recipe.amount} {Recipe.unit} {Recipe.name}
                 </li>
               ))}

@@ -5,6 +5,7 @@ import UserContext from "../common/userContext";
 import LoadingScreen from "../common/loading";
 import MealDays from "./mealDays";
 import MealRow from "./mealRow";
+import Recipe from "../recipes/recipe";
 
 import "../../styles/mealplans/mealplan.css";
 
@@ -38,6 +39,7 @@ const MealPlan = () => {
     );
   }
 
+  // Update data format for recipes received from API before preparing mealPlan table
   const transformData = (recipes) => {
     let transformed = {
       Breakfast: {},
@@ -60,8 +62,10 @@ const MealPlan = () => {
 
   return (
     <div className="mealplan">
-      <h1>{mealPlan.name}</h1>
-      <small>Created by: {mealPlan.created_by}</small>
+      <div className="mealplan-header">
+        <h1>{mealPlan.name}</h1>
+        <small>Created by: {mealPlan.created_by}</small>
+      </div>
       <div className="mealplan-table">
         <table>
           <thead>
@@ -74,6 +78,17 @@ const MealPlan = () => {
             <MealRow transformedData={transformedData} mealType="Snack" />
           </tbody>
         </table>
+      </div>
+      <div className="mealplan-recipes">
+        {mealPlan.recipes.map((recipe) => {
+          return (
+            <Recipe
+              key={recipe.recipe_id}
+              recipeId={recipe.recipe_id}
+              mealPlanRecipe={true}
+            />
+          );
+        })}
       </div>
     </div>
   );
