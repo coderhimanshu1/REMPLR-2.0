@@ -16,7 +16,9 @@ const IngredientCard = ({ ingredient }) => {
         alt={ingredient.name}
       />
       {/* Star icon to save ingredient */}
-      <SaveHeartButton isSaved={isSaved} handleSave={handleIngredientSave} />
+      {isSaved && (
+        <SaveHeartButton isSaved={isSaved} handleSave={handleIngredientSave} />
+      )}
 
       <h3>{ingredient.name}</h3>
     </div>

@@ -12,6 +12,7 @@ const Recipes = ({ handleAddRecipe, mealPlanner, userSaved = false }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setIsLoading] = useState(true);
   const { currentUser, token } = useContext(UserContext);
+
   const navigate = useNavigate();
   if (!token) {
     navigate("/login");

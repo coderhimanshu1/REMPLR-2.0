@@ -13,8 +13,7 @@ const Recipe = ({ recipeId, mealPlanRecipe }) => {
   const params = useParams();
   const id = recipeId || params.id;
   const [recipe, setRecipe] = useState(null);
-  const { isSaved, handleRecipeSave } = useSaveRecipe(id);
-
+  const { isSaved, handleRecipeSave } = useSaveRecipe(recipe);
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -76,8 +75,8 @@ const Recipe = ({ recipeId, mealPlanRecipe }) => {
           <h2>Ingredients</h2>
           <ul>
             {recipe.ingredients &&
-              recipe.ingredients.map((Recipe) => (
-                <li>
+              recipe.ingredients.map((Recipe, index) => (
+                <li key={index}>
                   {Recipe.amount} {Recipe.unit} {Recipe.name}
                 </li>
               ))}

@@ -123,6 +123,10 @@ class RemplrApi {
     return result["deleted user"];
   }
 
+  /*****************************
+   * Methods for User's Ingredients
+   ******************************/
+
   /** Associate an ingredient with a user
    * Takes a username and ingredient ID
    * Returns a confirmation message
@@ -137,6 +141,34 @@ class RemplrApi {
     return result["Saved ingredient with id"];
   }
 
+  /** Get user's saved ingredients by username
+   * Takes a username
+   * Returns { ingredients: [{id, aisle, image, name, original, amount, unit}, ...] }
+   * Authorization required: admin or same-user-as-:username
+   */
+  static async getUserSavedIngredients(username) {
+    const result = await this.request(`users/${username}/ingredients`);
+    return result;
+  }
+
+  /** Removed a saved recipe from a user
+   * Takes a username and recipe ID
+   * Returns a confirmation message
+   * Authorization required: admin or same user-as-:username
+   */
+  static async deleteSavedIngredient(username, ingredientId) {
+    const result = await this.request(
+      `users/${username}/ingredients/${ingredientId}`,
+      {},
+      "delete"
+    );
+    return result[`Unliked ingredient with id ${ingredientId}`];
+  }
+
+  /*****************************
+   * Methods for User's Recipes
+   ******************************/
+
   /** Associate a recipe with a user
    * Takes a username and recipe ID
    * Returns a confirmation message
@@ -148,40 +180,22 @@ class RemplrApi {
       {},
       "post"
     );
-    return result["Saved ingredient with id"];
+    return result[`Liked recipe with id: ${recipeId}`];
   }
 
-  /** Associate a meal plan with a user
-   * Takes a username and mealPlan ID
-   * Returns the mealPlan object
-   * Authorization required: admin or nutritionist
+  /** Removed a saved recipe from a user
+   * Takes a username and recipe ID
+   * Returns a confirmation message
+   * Authorization required: admin or same user-as-:username
    */
-  static async saveMealPlan(username, mealPlanId) {
+  static async deleteSavedRecipe(username, recipeId) {
     const result = await this.request(
-      `users/${username}/mealplans/${mealPlanId}`,
+      `users/${username}/recipes/${recipeId}`,
       {},
-      "post"
+      "delete"
     );
-    return result;
+    return result[`Unliked recipe with id ${recipeId}`];
   }
-
-  /*****************************
-   * Methods for User's Ingredients
-   ******************************/
-
-  /** Get user's saved ingredients by username
-   * Takes a username
-   * Returns { ingredients: [{id, aisle, image, name, original, amount, unit}, ...] }
-   * Authorization required: admin or same-user-as-:username
-   */
-  static async getUserSavedIngredients(username) {
-    const result = await this.request(`users/${username}/ingredients`);
-    return result;
-  }
-
-  /*****************************
-   * Methods for User's Recipes
-   ******************************/
 
   /** Get user's saved recipes by username
    * Takes a username
@@ -196,6 +210,20 @@ class RemplrApi {
   /*****************************
    * Methods for User's Meal Plans
    ******************************/
+
+  /** Associate a meal plan with a user
+   * Takes a username and mealPlan ID
+   * Returns the mealPlan object
+   * Authorization required: admin or nutritionist
+   */
+  static async saveMealPlan(username, mealPlanId) {
+    const result = await this.request(
+      `users/${username}/mealplans/${mealPlanId}`,
+      {},
+      "post"
+    );
+    return result;
+  }
 
   /** Get user's saved meal plans by username
    * Takes a username
