@@ -12,9 +12,11 @@ const daysOfWeek = [
 const MealDays = () => {
   return (
     <>
-      {daysOfWeek.map((day) => (
-        <th key={day}>{day}</th>
-      ))}
+      <tr>
+        {daysOfWeek.map((day) => (
+          <th key={day}>{day}</th>
+        ))}
+      </tr>
     </>
   );
 };
