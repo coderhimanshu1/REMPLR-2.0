@@ -60,7 +60,7 @@ const App = () => {
    */
   const register = async (signupData) => {
     try {
-      let token = await RemplrApi.signupUser(signupData);
+      let token = await RemplrApi.registerNutritionist(signupData);
       RemplrApi.setToken(token);
       return { success: true };
     } catch (errors) {

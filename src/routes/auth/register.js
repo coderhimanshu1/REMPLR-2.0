@@ -9,7 +9,6 @@ import "../../styles/common/auth.css";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "../common/alert";
-import Brand from "../common/brand";
 
 const RegisterForm = ({ register }) => {
   const navigate = useNavigate();
