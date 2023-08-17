@@ -70,8 +70,10 @@ const MealPlanner = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // check if correct username was entered
-    if (formData.created_by !== currentUser.username)
+    if (formData.created_by !== currentUser.username) {
       setFormErrors(["Please enter correct username."]);
+      return;
+    }
 
     // Check if there's at least one recipe
     if (Object.keys(recipesForCells).length === 0) {
