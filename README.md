@@ -47,7 +47,8 @@ In a fast-paced world, ensuring balanced nutrition and managing meals across the
 #### REMPLR Design Architecture
 
 
-<img width="2164" alt="REMPLR Design Architecture" src="https://github.com/coderhimanshu1/Remplr-backend/assets/87880250/546d1ac0-64b6-4666-a31a-549bd5e88e49">
+
+<img width="2762" alt="REMPLR Design Architecture (4)" src="https://github.com/coderhimanshu1/REMPLR-2.0/assets/87880250/6442cdb7-a09d-4ee1-81a0-5cc1def5e1a1">
 
 
 
