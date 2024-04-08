@@ -81,7 +81,7 @@ In a fast-paced world, ensuring balanced nutrition and managing meals across the
 
 ### API Structure and Endpoints
 
-Please find the backend API documentation here: [Remplr-API](https://coderhimanshu1.github.io/Remplr-backend/)
+Please find the backend API documentation here: [Remplr-API](https://himanshuk-dev.github.io/Remplr-backend/)
 
 ## Challenges & Solutions
 
